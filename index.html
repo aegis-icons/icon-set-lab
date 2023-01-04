@@ -1,0 +1,125 @@
+---
+title: Icon tester for aegis-icons
+---
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="prefetch" href="/fonts/inter-v3-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="prefetch" href="/fonts/inter-v3-latin-600.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/main.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page.title }}</title>
+    <style>{% include sanitize.min.css %} {% include fonts.min.css %}</style>
+    <script>{% include list.min.js %}</script>
+  </head>
+  
+  <body data-theme-color="dark" data-icon-grid="off" data-icon-size="big">
+    <div id="container">
+      <div id="primary">
+        <h1>Primary</h1>
+        <div class="list">
+          {% assign image_files = site.static_files | where: "is_primary", true %}
+          {% for myimage in image_files %}
+            {% include icon-elements.txt %}
+          {% endfor %}
+        </div>
+      </div>
+  
+      <div id="variations">
+        <h1>Var / Alt</h1>
+        <div class="list">
+          {% assign image_files = site.static_files | where: "is_variation", true %}
+          {% for myimage in image_files %}
+            {% include icon-elements.txt %}
+          {% endfor %}
+        </div>
+      </div>
+  
+      <div id="generic">
+        <h1>Generic</h1>
+        <div class="list">
+          {% assign image_files = site.static_files | where: "is_generic", true %}
+          {% for myimage in image_files %}
+            {% include icon-elements.txt %}
+          {% endfor %}
+        </div>
+      </div>
+  
+      <div id="outdated">
+        <h1>Outdated</h1>
+        <div class="list">
+          {% assign image_files = site.static_files | where: "is_outdated", true %}
+          {% for myimage in image_files %}
+            {% include icon-elements.txt %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  
+    <div id="section-nav" class="left">
+      <input class="search" placeholder="Search the icons" type="search">
+      <button class="reset">Clear the search</button>
+      <ul>
+        <li><a href="#primary">Primary</a>: <b id="icon-amount-pri">...</b></li>
+        <li><a href="#variations">Var / Alt</a>: <b id="icon-amount-var">...</b></li>
+        <li><a href="#generic">Generic</a>: <b id="icon-amount-gen">...</b></li>
+        <li><a href="#outdated">Outdated</a>: <b id="icon-amount-out">...</b></li>
+        <li class="sep">Total: <b id="total-icon-count">...</b></li>
+      </ul>
+    </div>
+  
+    <div id="section-nav" class="right">
+      <ul>
+        <li><b>Icon grid:</b></li>
+        <li>
+          <input type="radio" name="iconGrid" id="off-r" value="off" checked>
+          <label for="off-r">Off (default)</label>
+        </li>
+        <li>
+          <input type="radio" name="iconGrid" id="icon-grid-r" value="icon-grid">
+          <label for="icon-grid-r">Normal</label>
+        </li>
+        <li>
+          <input type="radio" name="iconGrid" id="alt-icon-grid-r" value="alt-icon-grid">
+          <label for="alt-icon-grid-r">Inverted colors</label>
+        </li>
+      </ul>
+      <ul class="sep">
+        <li><b>Theme color:</b></li>
+        <li>
+          <input type="radio" name="themeColor" id="dark-r" value="dark" checked>
+          <label for="dark-r">Dark (default)</label>
+        </li>
+        <li>
+          <input type="radio" name="themeColor" id="amoled-r" value="amoled">
+          <label for="amoled-r">AMOLED</label>
+        </li>
+        <li>
+          <input type="radio" name="themeColor" id="light-r" value="light">
+          <label for="light-r">Light</label>
+        </li>
+      </ul>
+      <ul class="sep">
+        <li><b>Icon size:</b></li>
+        <li>
+          <input type="radio" name="iconSize" id="big-r" value="big" checked>
+          <label for="big-r">85% of viewport (default)</label>
+        </li>
+        <li>
+          <input type="radio" name="iconSize" id="medium-r" value="medium">
+          <label for="medium-r">300px ✕ 300px</label>
+        </li>
+        <li>
+          <input type="radio" name="iconSize" id="small-r" value="small">
+          <label for="small-r">100px ✕ 100px</label>
+        </li>
+      </ul>
+    </div>
+  
+    <script>
+      {% include bottom-scripts.js %}
+    </script>
+  </body>
+</html>

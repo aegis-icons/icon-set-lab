@@ -1,0 +1,306 @@
+---
+---
+
+:root {
+  --light-bg: rgba(0,0,0,0.75);
+  --light-color: #fff;
+  --blur: blur(10px);
+  --reset-bg: linear-gradient(180deg, #FF5252 0%, #9C2424 100%);
+  --reset-bg-act: linear-gradient(0deg, #FF5252 0%, #9C2424 100%);
+}
+
+html {
+  scroll-snap-type: y mandatory;
+}
+
+body, input, button
+{ font-family: "Inter", "Roboto", "Segoe UI", system, -apple-system, ".SFNSText-Regular", "San Francisco", "Helvetica Neue", "Lucida Grande", sans-serif; }
+
+h1 {
+  font-size: 1.5rem;
+  padding: 20px;
+  text-align: center;
+}
+
+button, .list img {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+body {
+  font-weight: 400;
+  overflow-y: scroll;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+#container {
+  max-width: 1452px;
+  margin: -16px auto 0;
+}
+
+#container div[id] {
+  padding: 0 20px 65px;
+}
+
+h1, .list div {
+  scroll-snap-align: start;
+}
+
+.list {
+  display: grid;
+  column-gap: 5%;
+  row-gap: 50px;
+  justify-content: center;
+}
+
+.list:empty::after {
+  content: "No results, try different keyword.";
+  white-space: nowrap;
+  text-align: center;
+}
+
+.list div {
+  padding-top: 10px;
+}
+
+.list div img {
+  display: block;
+}
+
+.list div a {
+  font-size: 0.97rem;
+  padding-top: 12px;
+  text-align: center;
+  line-height: 1.25rem;
+  display: block;
+}
+
+.list div::before {
+  content: "";
+  position: absolute;
+}
+
+#section-nav {
+  width: 190px;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 10px;
+}
+
+#section-nav.left {
+  position: fixed;
+  bottom: 0;
+}
+
+#section-nav.right {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#section-nav li {
+  list-style: none;
+}
+
+#section-nav.left b {
+  float: right;
+}
+
+#section-nav .sep {
+  margin-top: 7px;
+  padding-top: 5px;
+}
+
+label {
+  font-size: 0.775rem;
+  display: inline-block;
+  width: 89%;
+}
+
+.search {
+  display: grid;
+  margin: 0 auto 5px;
+  width: 100%;
+  padding: 8px 3px;
+  text-align: center;
+  border-radius: 10px;
+  border: 2px solid #606060;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  font-size: 0.9rem;
+  transition: box-shadow 0.15s;
+}
+
+.search:focus {
+  border: 2px solid #263CD9;
+  box-shadow: 0 0 5px rgba(38,60,217,0.75);
+  outline: transparent;
+}
+
+.reset {
+  background: var(--reset-bg);
+  color: #fff;
+  border: 1px solid #3c3c3c;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+  padding: 5px 10px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.reset:active {
+  background: var(--reset-bg-act);
+}
+
+/* Icon grid off */
+
+body[data-icon-grid="off"] .list div::before {
+  background: none;
+}
+
+/* Icon grids */
+
+body[data-icon-grid$="icon-grid"] .list div::before {
+  background: url(../icons/z_icon_grid.svg) center no-repeat;
+  filter: contrast(200%);
+}
+
+/* Icon grid on inverted colors */
+
+body[data-icon-grid="alt-icon-grid"] .list div::before {
+  filter: invert(100%) contrast(200%) !important;
+}
+
+/* Dark color */
+
+body[data-theme-color="dark"] #container {
+  background: #2b2b2b;
+  color: #fff;
+}
+
+body[data-theme-color="dark"] :not(#section-nav) a {
+  color: #fff;
+}
+
+body[data-theme-color="dark"] #section-nav {
+  background: linear-gradient(#1a1a1ad4, #5b5b5b);
+  color: var(--light-color);
+  backdrop-filter: var(--blur);
+}
+
+body[data-theme-color="dark"] #section-nav .sep {
+  border-top: 1px solid var(--light-color);
+}
+
+body[data-theme-color="dark"] #section-nav a {
+  color: var(--light-color);
+}
+
+/* AMOLED color */
+
+body[data-theme-color="amoled"] #container {
+  background: #000;
+  color: #fff;
+}
+
+body[data-theme-color="amoled"] :not(#section-nav) a {
+  color: #fff;
+}
+
+body[data-theme-color="amoled"] #section-nav {
+  background: linear-gradient(#1a1a1ad4, #5b5b5b);
+  color: var(--light-color);
+  backdrop-filter: var(--blur);
+}
+
+body[data-theme-color="amoled"] #section-nav .sep {
+  border-top: 1px solid var(--light-color);
+}
+
+body[data-theme-color="amoled"] #section-nav a {
+  color: var(--light-color);
+}
+
+/* Light color */
+
+body[data-theme-color="light"] #container {
+  background: #fff;
+}
+
+body[data-theme-color="light"] #section-nav {
+  background: linear-gradient(#1a1a1ad4, #5b5b5b);
+  color: var(--light-color);
+  backdrop-filter: var(--blur);
+}
+
+body[data-theme-color="light"] #section-nav .sep {
+  border-top: 1px solid var(--light-color);
+}
+
+body[data-theme-color="light"] :not(#section-nav) a {
+  color: #000;
+}
+
+body[data-theme-color="light"] #section-nav a {
+  color: var(--light-color);
+}
+
+/* Default icon view (85 vw x 85 vh) */
+
+body[data-icon-size="big"] .list {
+  grid-template-columns: repeat(auto-fit, 94vw);
+}
+
+body[data-icon-size="big"] .list div img {
+  height: 94vh;
+  width: 94vw;
+}
+
+body[data-icon-size="big"] .list div::before {
+  height: 94vh;
+  width: 94vw;
+}
+
+/* Medium icon size (300 px x 300 px) */
+
+body[data-icon-size="medium"] .list {
+  grid-template-columns: repeat(auto-fit, 300px);
+}
+
+body[data-icon-size="medium"] .list div img {
+  height: 300px;
+  width: 300px;
+}
+
+body[data-icon-size="medium"] .list div::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Small icon view (100 px x 100 px) */
+
+body[data-icon-size="small"] .list {
+  grid-template-columns: repeat(auto-fit, 100px);
+  row-gap: 35px;
+}
+
+body[data-icon-size="small"] .list div img {
+  height: 100px;
+  width: 100px;
+}
+
+body[data-icon-size="small"] .list div::before {
+  width: 100px;
+  height: 100px;
+}

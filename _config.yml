@@ -1,0 +1,32 @@
+exclude:
+ - .1___start_jekyll_server.bat
+ - .2___compress_bottom-scripts.bat
+ - get_icons.bat
+ - LICENSE.md
+ - README.md
+ - x__excluded/
+ 
+defaults:
+  - scope:
+      path: "icons/primary"
+    values:
+      image: true
+      is_primary: true
+  - scope:
+      path: "icons/variations"
+    values:
+      image: true
+      is_variation: true
+  - scope:
+      path: "icons/generic"
+    values:
+      image: true
+      is_generic: true
+  - scope:
+      path: "icons/outdated"
+    values:
+      image: true
+      is_outdated: true
+
+sass:
+  style: compressed
