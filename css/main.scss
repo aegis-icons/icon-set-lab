@@ -18,8 +18,10 @@ body, input, button
 
 h1 {
   font-size: 1.5rem;
-  padding: 20px;
-  text-align: center;
+  padding-top: 20px;
+  position: sticky;
+  top: 0;
+  display: inline;
 }
 
 button, .list img {
@@ -48,11 +50,11 @@ ul {
   margin: -16px auto 0;
 }
 
-#container div[id] {
+#container > div[id] {
   padding: 0 20px 65px;
 }
 
-h1, .list div {
+.list div {
   scroll-snap-align: start;
 }
 
@@ -126,7 +128,12 @@ h1, .list div {
 label {
   font-size: 0.775rem;
   display: inline-block;
-  width: 89%;
+  width: calc(100% - 20px);
+}
+
+label span {
+  font-family: "Cascadia Code", Consolas, monospace;
+  float: right;
 }
 
 .search {
@@ -262,12 +269,12 @@ body[data-icon-size="big"] .list {
   grid-template-columns: repeat(auto-fit, 94vw);
 }
 
-body[data-icon-size="big"] .list div img {
-  height: 94vh;
-  width: 94vw;
+body[data-icon-size="big"] .list div {
+  padding-top: 15px;
 }
 
-body[data-icon-size="big"] .list div::before {
+body[data-icon-size="big"] .list div::before,
+body[data-icon-size="big"] .list div img {
   height: 94vh;
   width: 94vw;
 }
@@ -276,14 +283,15 @@ body[data-icon-size="big"] .list div::before {
 
 body[data-icon-size="medium"] .list {
   grid-template-columns: repeat(auto-fit, 300px);
+  column-gap: 3.5%;
 }
 
+body[data-icon-size="medium"] .list div {
+  padding-top: 80px;
+}
+
+body[data-icon-size="medium"] .list div::before,
 body[data-icon-size="medium"] .list div img {
-  height: 300px;
-  width: 300px;
-}
-
-body[data-icon-size="medium"] .list div::before {
   width: 300px;
   height: 300px;
 }
@@ -292,15 +300,15 @@ body[data-icon-size="medium"] .list div::before {
 
 body[data-icon-size="small"] .list {
   grid-template-columns: repeat(auto-fit, 100px);
-  row-gap: 35px;
+  row-gap: 0;
 }
 
+body[data-icon-size="small"] .list div {
+  padding-top: 80px;
+}
+
+body[data-icon-size="small"] .list div::before,
 body[data-icon-size="small"] .list div img {
   height: 100px;
   width: 100px;
-}
-
-body[data-icon-size="small"] .list div::before {
-  width: 100px;
-  height: 100px;
 }

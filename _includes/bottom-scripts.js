@@ -51,3 +51,29 @@
     radio.addEventListener('change', () => bodySelector.dataset.iconSize = radio.value);
     radio.addEventListener('change', () => document.documentElement.scrollTo({ top: 0 }));
   });
+
+  // ==== Keyboard hotkeys ====
+  hotkeys('f1,1,2,3,q,w,e,a,s,d', function (event, handler){
+    switch (handler.key) {
+      case 'f1': document.querySelector("input[class='search']").focus();
+        break;
+      case '1': document.querySelector("input[value='off']").click();
+        break;
+      case '2': document.querySelector("input[value='icon-grid']").click();
+        break;
+      case '3': document.querySelector("input[value='alt-icon-grid']").click();
+        break;
+      case 'q': document.querySelector("input[value='dark']").click();
+        break;
+      case 'w': document.querySelector("input[value='amoled']").click();
+        break;
+      case 'e': document.querySelector("input[value='light']").click();
+        break;
+      case 'a': document.querySelector("input[value='big']").click();
+        break;
+      case 's': document.querySelector("input[value='medium']").click();
+        break;
+      case 'd': document.querySelector("input[value='small']").click();
+        break;
+    }
+  });
