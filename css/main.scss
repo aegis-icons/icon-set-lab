@@ -3,8 +3,6 @@
 
 :root {
   --blur: blur(10px);
-  --reset-bg: linear-gradient(180deg, #FF5252 0%, #9C2424 100%);
-  --reset-bg-act: linear-gradient(0deg, #FF5252 0%, #9C2424 100%);
   --border-radius: 10px;
 }
 
@@ -70,7 +68,12 @@ ul {
   justify-content: center;
 }
 
+#primary.list:empty::after {
+  margin-top: 40px;
+}
+
 .list:empty::after {
+  font-family: "Cascadia Mono", Consolas, monospace;
   content: "No results, try different keyword.";
   white-space: nowrap;
   text-align: center;
@@ -105,6 +108,7 @@ ul {
   padding: 10px;
   margin: 5px;
   border-radius: var(--border-radius);
+  z-index: 2;
 }
 
 #section-nav a {
@@ -144,10 +148,11 @@ label {
   width: calc(100% - 20px);
 }
 
-label span {
-  font-family: "Cascadia Code", Consolas, monospace;
-  float: right;
+li span {
+  font-family: "Cascadia Mono", Consolas, monospace;
 }
+
+.right li span { float: right; }
 
 .search {
   display: grid;
@@ -169,7 +174,7 @@ label span {
 }
 
 .reset {
-  background: var(--reset-bg);
+  background: linear-gradient(180deg, #FF5252 0%, #9C2424 100%);
   color: #fff;
   border: 1px solid #3c3c3c;
   border-radius: var(--border-radius);
@@ -180,7 +185,7 @@ label span {
 }
 
 .reset:active {
-  background: var(--reset-bg-act);
+  background: linear-gradient(0deg, #FF5252 0%, #9C2424 100%);
 }
 
 /* Icon grid off */
@@ -199,7 +204,7 @@ body[data-icon-grid$="icon-grid"] .list div::before {
 /* Icon grid on inverted colors */
 
 body[data-icon-grid="alt-icon-grid"] .list div::before {
-  filter: invert(100%) contrast(200%) !important;
+  filter: invert(100%) contrast(400%) !important;
 }
 
 /* Dark color */
@@ -281,6 +286,10 @@ body[data-icon-size="medium"] .list {
   column-gap: 3.5%;
 }
 
+body[data-icon-size="medium"] .list:empty::after {
+  margin-left: -3.1%;
+}
+
 body[data-icon-size="medium"] .list div {
   padding-top: 80px;
 }
@@ -300,6 +309,10 @@ body[data-icon-size="small"] #container > div:last-child {
 body[data-icon-size="small"] .list {
   grid-template-columns: repeat(auto-fit, 100px);
   row-gap: 0;
+}
+
+body[data-icon-size="small"] .list:empty::after {
+  margin-left: -109.5%;
 }
 
 body[data-icon-size="small"] .list div {

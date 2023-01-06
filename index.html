@@ -8,6 +8,7 @@ title: Icon tester for aegis-icons
     <link rel="prefetch" href="/fonts/inter-v3-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="prefetch" href="/fonts/inter-v3-latin-600.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="/css/main.css">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ page.title }}</title>
@@ -17,9 +18,9 @@ title: Icon tester for aegis-icons
   
   <body data-theme-color="dark" data-icon-grid="off" data-icon-size="big">
     <div id="container">
-      <div id="primary">
+      <div id="primary-list">
         <h1>Primary</h1>
-        <div class="list" id="primary-sect">
+        <div class="list" id="primary">
           {% assign image_files = site.static_files | where: "is_primary", true %}
           {% for myimage in image_files %}
             {% include icon-elements.txt %}
@@ -27,9 +28,9 @@ title: Icon tester for aegis-icons
         </div>
       </div>
   
-      <div id="variations">
+      <div id="variations-list">
         <h1>Var / Alt</h1>
-        <div class="list" id="variations-sect">
+        <div class="list" id="variations">
           {% assign image_files = site.static_files | where: "is_variation", true %}
           {% for myimage in image_files %}
             {% include icon-elements.txt %}
@@ -37,9 +38,9 @@ title: Icon tester for aegis-icons
         </div>
       </div>
   
-      <div id="generic">
+      <div id="generic-list">
         <h1>Generic</h1>
-        <div class="list" id="generic-sect">
+        <div class="list" id="generic">
           {% assign image_files = site.static_files | where: "is_generic", true %}
           {% for myimage in image_files %}
             {% include icon-elements.txt %}
@@ -47,9 +48,9 @@ title: Icon tester for aegis-icons
         </div>
       </div>
   
-      <div id="outdated">
+      <div id="outdated-list">
         <h1>Outdated</h1>
-        <div class="list" id="outdated-sect">
+        <div class="list" id="outdated">
           {% assign image_files = site.static_files | where: "is_outdated", true %}
           {% for myimage in image_files %}
             {% include icon-elements.txt %}
@@ -59,13 +60,13 @@ title: Icon tester for aegis-icons
     </div>
   
     <div id="section-nav" class="left">
-      <input class="search" placeholder="Search (hotkey: F1)" type="search">
-      <button class="reset">Clear the search</button>
+      <input class="search" placeholder="Search" type="search">
+      <button class="reset">Clear search</button>
       <ul>
-        <li><a href="#primary-sect">Primary</a>: <b id="icon-amount-pri">...</b></li>
-        <li><a href="#variations-sect">Var / Alt</a>: <b id="icon-amount-var">...</b></li>
-        <li><a href="#generic-sect">Generic</a>: <b id="icon-amount-gen">...</b></li>
-        <li><a href="#outdated-sect">Outdated</a>: <b id="icon-amount-out">...</b></li>
+        <li><a href="#primary">Primary</a> <span>[1]</span>: <b id="icon-amount-pri">...</b></li>
+        <li><a href="#variations">Var / Alt</a> <span>[2]</span>: <b id="icon-amount-var">...</b></li>
+        <li><a href="#generic">Generic</a> <span>[3]</span>: <b id="icon-amount-gen">...</b></li>
+        <li><a href="#outdated">Outdated</a> <span>[4]</span>: <b id="icon-amount-out">...</b></li>
         <li class="sep">Total: <b id="total-icon-count">...</b></li>
       </ul>
     </div>
@@ -75,45 +76,45 @@ title: Icon tester for aegis-icons
         <li><b>Icon grid:</b></li>
         <li>
           <input type="radio" name="iconGrid" id="off-r" value="off" checked>
-          <label for="off-r">Off <i>(default)</i> <span>1</span></label>
+          <label for="off-r">Off <i>(default)</i> <span>[Q]</span></label>
         </li>
         <li>
           <input type="radio" name="iconGrid" id="icon-grid-r" value="icon-grid">
-          <label for="icon-grid-r">Normal <span>2</span></label>
+          <label for="icon-grid-r">Normal <span>[W]</span></label>
         </li>
         <li>
           <input type="radio" name="iconGrid" id="alt-icon-grid-r" value="alt-icon-grid">
-          <label for="alt-icon-grid-r">Inverted colors <span>3</span></label>
+          <label for="alt-icon-grid-r">Inverted colors <span>[E]</span></label>
         </li>
       </ul>
       <ul class="sep">
         <li><b>Theme color:</b></li>
         <li>
           <input type="radio" name="themeColor" id="dark-r" value="dark" checked>
-          <label for="dark-r">Dark <i>(default)</i> <span>Q</span></label>
+          <label for="dark-r">Dark <i>(default)</i> <span>[A]</span></label>
         </li>
         <li>
           <input type="radio" name="themeColor" id="amoled-r" value="amoled">
-          <label for="amoled-r">AMOLED <span>W</span></label>
+          <label for="amoled-r">AMOLED <span>[S]</span></label>
         </li>
         <li>
           <input type="radio" name="themeColor" id="light-r" value="light">
-          <label for="light-r">Light <span>E</span></label>
+          <label for="light-r">Light <span>[D]</span></label>
         </li>
       </ul>
       <ul class="sep">
         <li><b>Icon size:</b></li>
         <li>
           <input type="radio" name="iconSize" id="big-r" value="big" checked>
-          <label for="big-r">85% viewport <i>(default)</i> <span>A</span></label>
+          <label for="big-r">85% viewp. <i>(default)</i> <span>[Z]</span></label>
         </li>
         <li>
           <input type="radio" name="iconSize" id="medium-r" value="medium">
-          <label for="medium-r">300px ✕ 300px <span>S</span></label>
+          <label for="medium-r">300px ✕ 300px <span>[X]</span></label>
         </li>
         <li>
           <input type="radio" name="iconSize" id="small-r" value="small">
-          <label for="small-r">100px ✕ 100px <span>D</span></label>
+          <label for="small-r">100px ✕ 100px <span>[C]</span></label>
         </li>
       </ul>
     </div>
