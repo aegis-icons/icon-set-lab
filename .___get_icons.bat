@@ -1,9 +1,5 @@
 set website-root=%cd%
 cd ..
 cd aegis-icons
-robocopy "%cd%\_templates" "%website-root%\icons" z_icon_grid.svg
-cd icons
-robocopy "%cd%\1_Primary" "%website-root%\icons\primary" /mir
-robocopy "%cd%\2_Variations" "%website-root%\icons\variations" /mir
-robocopy "%cd%\3_Generic" "%website-root%\icons\generic" /mir
-robocopy "%cd%\4_Outdated" "%website-root%\icons\outdated" /mir
+robocopy "%cd%\_templates" "%website-root%" z_icon_grid.svg
+robocopy "%cd%\icons" "%website-root%\icons" /mir
