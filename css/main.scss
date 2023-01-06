@@ -2,11 +2,10 @@
 ---
 
 :root {
-  --light-bg: rgba(0,0,0,0.75);
-  --light-color: #fff;
   --blur: blur(10px);
   --reset-bg: linear-gradient(180deg, #FF5252 0%, #9C2424 100%);
   --reset-bg-act: linear-gradient(0deg, #FF5252 0%, #9C2424 100%);
+  --border-radius: 10px;
 }
 
 html {
@@ -17,11 +16,13 @@ body, input, button
 { font-family: "Inter", "Roboto", "Segoe UI", system, -apple-system, ".SFNSText-Regular", "San Francisco", "Helvetica Neue", "Lucida Grande", sans-serif; }
 
 h1 {
+  border-radius: var(--border-radius);
   font-size: 1.5rem;
-  padding-top: 20px;
+  padding: 5px;
   position: sticky;
-  top: 0;
+  top: 15px;
   display: inline;
+  z-index: 1;
 }
 
 button, .list img {
@@ -50,8 +51,12 @@ ul {
   margin: -16px auto 0;
 }
 
-#container > div[id] {
+#container > div {
   padding: 0 20px 65px;
+}
+
+#container a {
+  color: #fff;
 }
 
 .list div {
@@ -93,10 +98,17 @@ ul {
 }
 
 #section-nav {
+  background: rgba(255,255,255,.75);
+  color: #000;
+  backdrop-filter: var(--blur);
   width: 190px;
   padding: 10px;
   margin: 5px;
-  border-radius: 10px;
+  border-radius: var(--border-radius);
+}
+
+#section-nav a {
+  color: #000;
 }
 
 #section-nav.left {
@@ -121,6 +133,7 @@ ul {
 }
 
 #section-nav .sep {
+  border-top: 1px solid #000;
   margin-top: 7px;
   padding-top: 5px;
 }
@@ -142,7 +155,7 @@ label span {
   width: 100%;
   padding: 8px 3px;
   text-align: center;
-  border-radius: 10px;
+  border-radius: var(--border-radius);
   border: 2px solid #606060;
   box-shadow: 0 0 5px rgba(0,0,0,0.1);
   font-size: 0.9rem;
@@ -159,7 +172,7 @@ label span {
   background: var(--reset-bg);
   color: #fff;
   border: 1px solid #3c3c3c;
-  border-radius: 10px;
+  border-radius: var(--border-radius);
   box-shadow: 0 0 5px rgba(0,0,0,0.3);
   padding: 5px 10px;
   margin-bottom: 10px;
@@ -191,76 +204,58 @@ body[data-icon-grid="alt-icon-grid"] .list div::before {
 
 /* Dark color */
 
-body[data-theme-color="dark"] #container {
+body[data-theme-color="dark"] {
   background: #2b2b2b;
+}
+
+body[data-theme-color="dark"] #container {
   color: #fff;
 }
 
-body[data-theme-color="dark"] :not(#section-nav) a {
-  color: #fff;
-}
-
-body[data-theme-color="dark"] #section-nav {
-  background: linear-gradient(#1a1a1ad4, #5b5b5b);
-  color: var(--light-color);
-  backdrop-filter: var(--blur);
-}
-
-body[data-theme-color="dark"] #section-nav .sep {
-  border-top: 1px solid var(--light-color);
-}
-
-body[data-theme-color="dark"] #section-nav a {
-  color: var(--light-color);
+body[data-theme-color="dark"] h1 {
+  background: rgba(43,43,43,.75);
 }
 
 /* AMOLED color */
 
-body[data-theme-color="amoled"] #container {
+body[data-theme-color="amoled"] {
   background: #000;
+}
+
+body[data-theme-color="amoled"] #container {
   color: #fff;
 }
 
-body[data-theme-color="amoled"] :not(#section-nav) a {
-  color: #fff;
-}
-
-body[data-theme-color="amoled"] #section-nav {
-  background: linear-gradient(#1a1a1ad4, #5b5b5b);
-  color: var(--light-color);
-  backdrop-filter: var(--blur);
-}
-
-body[data-theme-color="amoled"] #section-nav .sep {
-  border-top: 1px solid var(--light-color);
-}
-
-body[data-theme-color="amoled"] #section-nav a {
-  color: var(--light-color);
+body[data-theme-color="amoled"] h1 {
+  background: rgba(0,0,0,.75);
 }
 
 /* Light color */
 
-body[data-theme-color="light"] #container {
+body[data-theme-color="light"] {
   background: #fff;
 }
 
+body[data-theme-color="light"] h1 {
+  background: rgba(255,255,255,.75);
+}
+
 body[data-theme-color="light"] #section-nav {
-  background: linear-gradient(#1a1a1ad4, #5b5b5b);
-  color: var(--light-color);
+  background: rgba(26,26,26,.85);
+  color: #fff;
   backdrop-filter: var(--blur);
 }
 
 body[data-theme-color="light"] #section-nav .sep {
-  border-top: 1px solid var(--light-color);
+  border-top: 1px solid #fff;
 }
 
-body[data-theme-color="light"] :not(#section-nav) a {
+body[data-theme-color="light"] #container a {
   color: #000;
 }
 
 body[data-theme-color="light"] #section-nav a {
-  color: var(--light-color);
+  color: #fff;
 }
 
 /* Default icon view (85 vw x 85 vh) */
@@ -297,6 +292,10 @@ body[data-icon-size="medium"] .list div img {
 }
 
 /* Small icon view (100 px x 100 px) */
+
+body[data-icon-size="small"] #container > div:last-child {
+  padding: 0 20px 5px;
+}
 
 body[data-icon-size="small"] .list {
   grid-template-columns: repeat(auto-fit, 100px);
