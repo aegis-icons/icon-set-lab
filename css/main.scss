@@ -197,7 +197,7 @@ body[data-icon-grid="off"] .list div::before {
 /* Icon grids */
 
 body[data-icon-grid$="icon-grid"] .list div::before {
-  background: url(../icons/z_icon_grid.svg) center no-repeat;
+  background: url(../z_icon_grid.svg) center no-repeat;
   filter: contrast(200%);
 }
 
