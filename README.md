@@ -1,4 +1,4 @@
-# Icon testing page for aegis-icons
+# aegis-icons – Icon Set Lab
 
 To be filled later.
 
