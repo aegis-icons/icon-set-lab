@@ -13,6 +13,9 @@ html {
 body, input, button
 { font-family: "Inter", "Roboto", "Segoe UI", system, -apple-system, ".SFNSText-Regular", "San Francisco", "Helvetica Neue", "Lucida Grande", sans-serif; }
 
+.hide, .search:focus + #placeholder
+{ display: none; }
+
 h1 {
   border-radius: var(--border-radius);
   font-size: 1.5rem;
@@ -175,9 +178,6 @@ kbd {
   box-shadow: 0 0 5px rgba(38,60,217,0.75);
   outline: transparent;
 }
-
-.search:focus + #placeholder
-{ display: none; }
 
 #placeholder {
   pointer-events: none;

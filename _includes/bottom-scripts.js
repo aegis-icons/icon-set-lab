@@ -10,6 +10,10 @@
     var searchValue = this.value;
     lists.forEach(function (list) { list.search(searchValue); }); 
     document.documentElement.scrollTo({ top: 0 });
+
+    if (!search.value == '') {
+      document.querySelector("#placeholder").classList.add('hide');
+    } else { document.querySelector("#placeholder").classList.remove('hide'); }
   };
 
 // ==== Reset button function and List.js search clearing ====
