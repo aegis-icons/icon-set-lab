@@ -49,7 +49,7 @@
   var iconSizeRadios = document.querySelectorAll('input[type=radio][name="iconSize"]');
   iconSizeRadios.forEach((radio) => {
     radio.addEventListener('change', () => bodySelector.dataset.iconSize = radio.value);
-    radio.addEventListener('change', () => document.documentElement.scrollTo({ top: 0 }));
+    //radio.addEventListener('change', () => document.documentElement.scrollTo({ top: 0 }));
   });
 
   // ==== Disable focus for radio button after event (UX tweak) ====
@@ -59,15 +59,17 @@
   });
 
   // ==== Keyboard hotkeys ====
-  hotkeys('1,2,3,4,q,w,e,a,s,d,z,x,c', function (event, handler){
+  hotkeys('ctrl+.,1,2,3,4,q,w,e,a,s,d,z,x,c', function (event, handler){
     switch (handler.key) {
-      case '1': document.getElementById("primary").scrollIntoView();
+      case 'ctrl+.': document.querySelector(".search").focus();
+        break
+      case '1': document.querySelector("#primary").scrollIntoView();
         break;
-      case '2': document.getElementById("variations").scrollIntoView();
+      case '2': document.querySelector("#variations").scrollIntoView();
         break;
-      case '3': document.getElementById("generic").scrollIntoView();
+      case '3': document.querySelector("#generic").scrollIntoView();
         break;
-      case '4': document.getElementById("outdated").scrollIntoView();
+      case '4': document.querySelector("#outdated").scrollIntoView();
         break;
       case 'q': document.querySelector("input[value='off']").click();
         break;

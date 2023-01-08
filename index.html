@@ -60,13 +60,14 @@ title: Icon Set Lab – aegis-icons
     </div>
   
     <div id="section-nav" class="left">
-      <input class="search" placeholder="Search" type="search">
-      <button class="reset">Clear search</button>
-      <ul>
-        <li><a href="#primary">Primary</a> <span>[1]</span>: <b id="icon-amount-pri">...</b></li>
-        <li><a href="#variations">Var / Alt</a> <span>[2]</span>: <b id="icon-amount-var">...</b></li>
-        <li><a href="#generic">Generic</a> <span>[3]</span>: <b id="icon-amount-gen">...</b></li>
-        <li><a href="#outdated">Outdated</a> <span>[4]</span>: <b id="icon-amount-out">...</b></li>
+      <input class="search" type="search">
+      <span id="placeholder"><span>Filter</span><kbd>CTRL + .</kbd></span>
+      <button class="reset">Clear filter</button>
+      <ul class="unselectable">
+        <li><kbd>1</kbd> <a href="#primary">Primary</a>: <b id="icon-amount-pri">...</b></li>
+        <li><kbd>2</kbd> <a href="#variations">Var / Alt</a>: <b id="icon-amount-var">...</b></li>
+        <li><kbd>3</kbd> <a href="#generic">Generic</a>: <b id="icon-amount-gen">...</b></li>
+        <li><kbd>4</kbd> <a href="#outdated">Outdated</a>: <b id="icon-amount-out">...</b></li>
         <li class="sep">Total: <b id="total-icon-count">...</b></li>
       </ul>
     </div>
@@ -76,45 +77,45 @@ title: Icon Set Lab – aegis-icons
         <li><b>Icon grid:</b></li>
         <li>
           <input type="radio" name="iconGrid" id="off-r" value="off" checked>
-          <label for="off-r">Off <i>(default)</i> <span>[Q]</span></label>
+          <label for="off-r">Off <i>(default)</i> <kbd>Q</kbd></label>
         </li>
         <li>
           <input type="radio" name="iconGrid" id="icon-grid-r" value="icon-grid">
-          <label for="icon-grid-r">Normal <span>[W]</span></label>
+          <label for="icon-grid-r">Normal <kbd>W</kbd></label>
         </li>
         <li>
           <input type="radio" name="iconGrid" id="alt-icon-grid-r" value="alt-icon-grid">
-          <label for="alt-icon-grid-r">Inverted colors <span>[E]</span></label>
+          <label for="alt-icon-grid-r">Inverted colors <kbd>E</kbd></label>
         </li>
       </ul>
       <ul class="sep">
         <li><b>Theme color:</b></li>
         <li>
           <input type="radio" name="themeColor" id="dark-r" value="dark" checked>
-          <label for="dark-r">Dark <i>(default)</i> <span>[A]</span></label>
+          <label for="dark-r">Dark <i>(default)</i> <kbd>A</kbd></label>
         </li>
         <li>
           <input type="radio" name="themeColor" id="amoled-r" value="amoled">
-          <label for="amoled-r">AMOLED <span>[S]</span></label>
+          <label for="amoled-r">AMOLED <kbd>S</kbd></label>
         </li>
         <li>
           <input type="radio" name="themeColor" id="light-r" value="light">
-          <label for="light-r">Light <span>[D]</span></label>
+          <label for="light-r">Light <kbd>D</kbd></label>
         </li>
       </ul>
       <ul class="sep">
         <li><b>Icon size:</b></li>
         <li>
           <input type="radio" name="iconSize" id="big-r" value="big" checked>
-          <label for="big-r">85% viewp. <i>(default)</i> <span>[Z]</span></label>
+          <label for="big-r">85% viewp. <i>(default)</i> <kbd>Z</kbd></label>
         </li>
         <li>
           <input type="radio" name="iconSize" id="medium-r" value="medium">
-          <label for="medium-r">300px <span>[X]</span></label>
+          <label for="medium-r">300px <kbd>X</kbd></label>
         </li>
         <li>
           <input type="radio" name="iconSize" id="small-r" value="small">
-          <label for="small-r">100px <span>[C]</span></label>
+          <label for="small-r">100px <kbd>C</kbd></label>
         </li>
       </ul>
     </div>

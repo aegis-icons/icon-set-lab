@@ -1,3 +1,3 @@
 @echo off
-jekyll serve --host localhost --incremental --open_url
+jekyll serve --host localhost --open_url
 pause
