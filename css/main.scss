@@ -26,7 +26,7 @@ h1 {
   z-index: 1;
 }
 
-button, .list img, .unselectable {
+button, .list img, .unselectable :not(b) {
   user-select: none;
   -webkit-user-select: none;
 }
@@ -200,14 +200,18 @@ kbd {
   border: 1px solid #3c3c3c;
   border-radius: var(--border-radius);
   box-shadow: 0 0 5px rgba(0,0,0,0.3);
-  padding: 5px 10px;
   margin-bottom: 10px;
   width: 100%;
+  padding: 8px;
 }
 
 .reset:active {
   background: linear-gradient(0deg, #FF5252 0%, #9C2424 100%);
 }
+
+.reset span { padding-right: 78px; }
+
+.reset kbd { color: #000; }
 
 /* Icon grid off */
 
@@ -284,7 +288,8 @@ body[data-theme-color="light"] #container a {
   color: #000;
 }
 
-body[data-theme-color="light"] #section-nav a {
+body[data-theme-color="light"] #section-nav a,
+body[data-theme-color="light"] .reset kbd {
   color: #fff;
 }
 

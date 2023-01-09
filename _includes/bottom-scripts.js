@@ -1,6 +1,7 @@
 // ==== Used more then once ====
   var search = document.querySelector('.search');
   const bodySelector = document.querySelector('body');
+  var placeholder = document.querySelector("#placeholder");
 
 // ==== List.js search function ====
   var listNames = ['primary-list', 'variations-list', 'generic-list', 'outdated-list'];
@@ -12,18 +13,19 @@
     document.documentElement.scrollTo({ top: 0 });
 
     if (!search.value == '') {
-      document.querySelector("#placeholder").classList.add('hide');
-    } else { document.querySelector("#placeholder").classList.remove('hide'); }
+      placeholder.classList.add('hide');
+    } else { placeholder.classList.remove('hide'); }
   };
 
 // ==== Reset button function and List.js search clearing ====
   var resetButton = document.querySelector('button.reset');
   
-  resetButton.addEventListener('click', function (test) {
+  resetButton.addEventListener('click', function () {
     if (!search.value == '') {
       search.value = '';
       lists.forEach(function (list) { list.search(); } );
       document.documentElement.scrollTo({ top: 0 });
+      placeholder.classList.remove('hide');
     }
   });
 
@@ -37,43 +39,53 @@
   document.getElementById("icon-amount-gen").innerHTML  = document.querySelectorAll('#generic-list .n').length;
   document.getElementById("icon-amount-out").innerHTML  = document.querySelectorAll('#outdated-list .n').length;
 
-  // ==== Change icon grid ====
+// ==== Radio button functions ====
+
+  // ▼ Enable / change icon grid
   var iconGridRadios = document.querySelectorAll('input[type=radio][name="iconGrid"]');
   iconGridRadios.forEach((radio) => {
     radio.addEventListener('change', () => bodySelector.dataset.iconGrid = radio.value);
   });
 
-  // ==== Change theme color ====
+  // ▼ Change theme color
   var themeColorRadios = document.querySelectorAll('input[type=radio][name="themeColor"]');
   themeColorRadios.forEach((radio) => {
     radio.addEventListener('change', () => bodySelector.dataset.themeColor = radio.value);
   });
 
-  // ==== Change icon size ====
+  // ▼ Change icon size
   var iconSizeRadios = document.querySelectorAll('input[type=radio][name="iconSize"]');
   iconSizeRadios.forEach((radio) => {
     radio.addEventListener('change', () => bodySelector.dataset.iconSize = radio.value);
     //radio.addEventListener('change', () => document.documentElement.scrollTo({ top: 0 }));
   });
 
-  // ==== Disable focus for radio button after event (UX tweak) ====
+  // ▼ Disable focus for radio button after event (UX tweak)
   var allRadios = document.querySelectorAll('input[type=radio]');
   allRadios.forEach((radio) => {
     radio.addEventListener('change', () => radio.blur());
   });
 
-  // ==== Keyboard hotkeys ====
-  hotkeys('ctrl+.,1,2,3,4,q,w,e,a,s,d,z,x,c', function (event, handler){
+// ==== Keyboard hotkeys ====
+  hotkeys('ctrl+.,1,num_1,2,num_2,3,num_3,4,num_4,q,w,e,a,s,d,z,x,c', function (event, handler){
     switch (handler.key) {
       case 'ctrl+.': document.querySelector(".search").focus();
         break
       case '1': document.querySelector("#primary").scrollIntoView();
         break;
+      case 'num_1': document.querySelector("#primary").scrollIntoView();
+        break;
       case '2': document.querySelector("#variations").scrollIntoView();
+        break;
+      case 'num_2': document.querySelector("#variations").scrollIntoView();
         break;
       case '3': document.querySelector("#generic").scrollIntoView();
         break;
+      case 'num_3': document.querySelector("#generic").scrollIntoView();
+        break;
       case '4': document.querySelector("#outdated").scrollIntoView();
+        break;
+      case 'num_4': document.querySelector("#outdated").scrollIntoView();
         break;
       case 'q': document.querySelector("input[value='off']").click();
         break;
@@ -95,3 +107,12 @@
         break;
     }
   });
+
+  // ▼ ESC button event (clear search and unfocus from search field)
+  window.onkeydown = function(e) {
+    if (e.keyCode == 27) {
+      e.preventDefault();
+      resetButton.click();
+      search.blur();
+    }
+  };
