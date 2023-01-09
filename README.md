@@ -1,4 +1,4 @@
-# aegis-icons – Icon Set Lab
+# Icon Set Lab for aegis-icons
 
 To be filled later.
 
