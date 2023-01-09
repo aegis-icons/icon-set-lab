@@ -26,7 +26,7 @@ h1 {
   z-index: 1;
 }
 
-button, .list img, .unselectable :not(b) {
+button, .list img, #placeholder, .left > ul * :not(b) {
   user-select: none;
   -webkit-user-select: none;
 }
@@ -133,6 +133,10 @@ ul {
 
 #section-nav li {
   list-style: none;
+}
+
+#section-nav.left li kbd {
+  margin-right: 5px;
 }
 
 #section-nav.left li b {
