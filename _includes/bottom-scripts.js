@@ -1,6 +1,6 @@
 // ==== Used more then once ====
   var search = document.querySelector('.search');
-  const bodySelector = document.querySelector('body');
+  var bodySelector = document.querySelector('body');
   var placeholder = document.querySelector("#placeholder");
 
 // ==== List.js search function ====
@@ -10,16 +10,20 @@
   var searchTrigger = function (e) {
     var searchValue = this.value;
     lists.forEach(function (list) { list.search(searchValue); }); 
-    document.documentElement.scrollTo({ top: 0 });
 
-    if (!search.value == '') {
-      placeholder.classList.add('hide');
-    } else { placeholder.classList.remove('hide'); }
+    // ▼ Fixes weird possible Firefox bug that triggers scroll up when pressing CTRL
+    search.addEventListener('keydown', function(event) {
+      if (event.ctrlKey) { void(0); } 
+      else { document.documentElement.scrollTo({ top: 0 }); }
+    });
+
+    if (!search.value == '') { placeholder.classList.add('hide'); }
+    else { placeholder.classList.remove('hide'); }
   };
 
 // ==== Reset button function and List.js search clearing ====
   var resetButton = document.querySelector('button.reset');
-  
+
   resetButton.addEventListener('click', function () {
     if (!search.value == '') {
       search.value = '';
@@ -29,7 +33,7 @@
     }
   });
 
-  // ▼ Trigger search by either typing, cutting (for resetting the search) or pasting
+// ▼ Trigger search by either typing, cutting (for resetting the search) or pasting
   ['keyup', 'paste', 'cut'].forEach(function(e) { search.addEventListener(e, searchTrigger); });
 
 // ==== Count the icons and print the results ====
@@ -40,7 +44,6 @@
   document.getElementById("icon-amount-out").innerHTML  = document.querySelectorAll('#outdated-list .n').length;
 
 // ==== Radio button functions ====
-
   // ▼ Enable / change icon grid
   var iconGridRadios = document.querySelectorAll('input[type=radio][name="iconGrid"]');
   iconGridRadios.forEach((radio) => {
@@ -57,7 +60,6 @@
   var iconSizeRadios = document.querySelectorAll('input[type=radio][name="iconSize"]');
   iconSizeRadios.forEach((radio) => {
     radio.addEventListener('change', () => bodySelector.dataset.iconSize = radio.value);
-    //radio.addEventListener('change', () => document.documentElement.scrollTo({ top: 0 }));
   });
 
   // ▼ Disable focus for radio button after event (UX tweak)
@@ -66,7 +68,7 @@
     radio.addEventListener('change', () => radio.blur());
   });
 
-// ==== Keyboard hotkeys ====
+// ==== Keyboard hotkeys (Hotkeys.js) ====
   hotkeys('ctrl+.,1,num_1,2,num_2,3,num_3,4,num_4,q,w,e,a,s,d,z,x,c', function (event, handler){
     switch (handler.key) {
       case 'ctrl+.': document.querySelector(".search").focus();
@@ -108,7 +110,9 @@
     }
   });
 
-  // ▼ ESC button event (clear search and unfocus from search field)
+// ==== ESC button event ====
+  // Clear search and unfocus from search field
+  // Not using Hotkeys.js, so that it works even when focused on text field
   window.onkeydown = function(e) {
     if (e.keyCode == 27) {
       e.preventDefault();

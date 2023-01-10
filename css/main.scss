@@ -300,7 +300,7 @@ body[data-theme-color="light"] .reset kbd {
 /* Default icon view (85 vw x 85 vh) */
 
 body[data-icon-size="big"] .list {
-  grid-template-columns: repeat(auto-fit, 94vw);
+  grid-template-columns: repeat(auto-fit, 93.5vw);
 }
 
 body[data-icon-size="big"] .list div {
@@ -309,8 +309,8 @@ body[data-icon-size="big"] .list div {
 
 body[data-icon-size="big"] .list div::before,
 body[data-icon-size="big"] .list div img {
-  height: 94vh;
-  width: 94vw;
+  height: 93.5vh;
+  width: 93.5vw;
 }
 
 /* Medium icon size (300 px x 300 px) */
