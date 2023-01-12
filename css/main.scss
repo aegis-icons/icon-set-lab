@@ -1,20 +1,25 @@
 ---
 ---
 
+// ------------------
+// ---- GENERAL -----
+// ------------------
+
 :root {
   --blur: blur(10px);
   --border-radius: 10px;
 }
 
-html {
-  scroll-snap-type: y mandatory;
+html
+{ scroll-snap-type: y mandatory; }
+
+body {
+  font-weight: 400;
+  overflow-y: scroll;
 }
 
 body, input, button
 { font-family: "Inter", "Roboto", "Segoe UI", system, -apple-system, ".SFNSText-Regular", "San Francisco", "Helvetica Neue", "Lucida Grande", sans-serif; }
-
-.hide, .search:focus + #placeholder
-{ display: none; }
 
 h1 {
   border-radius: var(--border-radius);
@@ -27,13 +32,8 @@ h1 {
 }
 
 button, .list img, #placeholder, .left > ul * :not(b) {
-  user-select: none;
   -webkit-user-select: none;
-}
-
-body {
-  font-weight: 400;
-  overflow-y: scroll;
+  user-select: none;
 }
 
 ul {
@@ -52,17 +52,17 @@ ul {
   margin: -16px auto 0;
 }
 
-#container > div {
-  padding: 0 20px 65px;
-}
+#container > div
+{ padding: 0 20px 65px; }
 
-#container a {
-  color: #fff;
-}
+#container a
+{ color: #fff; }
 
-.list div {
-  scroll-snap-align: start;
-}
+
+
+// -----------------------
+// ---- ICON DISPLAY -----
+// -----------------------
 
 .list {
   display: grid;
@@ -71,24 +71,29 @@ ul {
   justify-content: center;
 }
 
-#primary.list:empty::after {
-  margin-top: 40px;
-}
+.list div
+{ scroll-snap-align: start; }
+
+#primary.list:empty::after
+{ margin-top: 40px; }
 
 .list:empty::after {
-  font-family: "Cascadia Mono", Consolas, monospace;
+  font-family: "Cascadia Mono", Consolas, "Roboto Mono", "SF Mono", "Lucida Console", "DejaVu Sans Mono", "Liberation Mono", monospace;
   content: "No results, try different keyword.";
   white-space: nowrap;
   text-align: center;
 }
 
-.list div {
-  padding-top: 10px;
+.list div
+{ padding-top: 10px; }
+
+.list div::before {
+  content: "";
+  position: absolute;
 }
 
-.list div img {
-  display: block;
-}
+.list div img
+{ display: block; }
 
 .list div a {
   font-size: 0.97rem;
@@ -98,12 +103,13 @@ ul {
   display: block;
 }
 
-.list div::before {
-  content: "";
-  position: absolute;
-}
 
-#section-nav {
+
+// -------------------
+// ---- SIDEBARS -----
+// -------------------
+
+#sidebar {
   background: rgba(255,255,255,.75);
   color: #000;
   backdrop-filter: var(--blur);
@@ -114,16 +120,12 @@ ul {
   z-index: 2;
 }
 
-#section-nav a {
-  color: #000;
-}
-
-#section-nav.left {
+#sidebar.left {
   position: fixed;
   bottom: 0;
 }
 
-#section-nav.right {
+#sidebar.right {
   position: fixed;
   right: 0;
   bottom: 0;
@@ -131,23 +133,29 @@ ul {
   user-select: none;
 }
 
-#section-nav li {
-  list-style: none;
-}
+#sidebar a
+{ color: #000; }
 
-#section-nav.left li kbd {
-  margin-right: 5px;
-}
+#sidebar li
+{ list-style: none; }
 
-#section-nav.left li b {
-  float: right;
-}
+#sidebar.left li kbd
+{ margin-right: 5px; }
 
-#section-nav .sep {
+#sidebar.left li b
+{ float: right; }
+
+#sidebar .sep {
   border-top: 1px solid #000;
   margin-top: 7px;
   padding-top: 5px;
 }
+
+
+
+// ---------------------------------------------
+// ---- RADIO BUTTONS & KEYBOARD SHORTCUTS -----
+// ---------------------------------------------
 
 label {
   font-size: 0.775rem;
@@ -162,7 +170,14 @@ kbd {
   border-radius: 5px;
 }
 
-.right kbd { float: right; }
+.right kbd
+{ float: right; }
+
+
+
+// -------------------------
+// ---- SEARCH RELATED -----
+// -------------------------
 
 .search {
   display: grid;
@@ -209,103 +224,109 @@ kbd {
   padding: 8px;
 }
 
-.reset:active {
-  background: linear-gradient(0deg, #FF5252 0%, #9C2424 100%);
-}
+.reset:active
+{ background: linear-gradient(0deg, #FF5252 0%, #9C2424 100%); }
 
-.reset span { padding-right: 78px; }
+.reset span
+{ padding-right: 78px; }
 
-.reset kbd { color: #000; }
+.reset kbd
+{ color: #000; }
 
-/* Icon grid off */
+.hide, .search:focus + #placeholder
+{ display: none; }
 
-body[data-icon-grid="off"] .list div::before {
-  background: none;
-}
 
-/* Icon grids */
+
+// -------------------------------
+// ---- RIGHT SIDEBAR OPTIONS ----
+// -------------------------------
+
+// ==============
+// # Icon grids #
+// ==============
+
+/* -- Icon grid off -- */
+
+body[data-icon-grid="off"] .list div::before
+{ background: none; }
+
+/* -- Icon grids -- */
 
 body[data-icon-grid$="icon-grid"] .list div::before {
   background: url(../z_icon_grid.svg) center no-repeat;
   filter: contrast(200%);
 }
 
-/* Icon grid on inverted colors */
+/* -- Icon grid on inverted colors -- */
 
-body[data-icon-grid="alt-icon-grid"] .list div::before {
-  filter: invert(100%) contrast(400%) !important;
-}
+body[data-icon-grid="alt-icon-grid"] .list div::before
+{ filter: invert(100%) contrast(400%) !important; }
 
-/* Dark color */
+// ================
+// # Theme colors #
+// ================
 
-body[data-theme-color="dark"] {
-  background: #2b2b2b;
-}
+/* -- Dark color -- */
 
-body[data-theme-color="dark"] #container {
-  color: #fff;
-}
+body[data-theme-color="dark"]
+{ background: #2b2b2b; }
 
-body[data-theme-color="dark"] h1 {
-  background: rgba(43,43,43,.75);
-}
+body[data-theme-color="dark"] #container
+{ color: #fff; }
 
-/* AMOLED color */
+body[data-theme-color="dark"] h1
+{ background: rgba(43,43,43,.75); }
 
-body[data-theme-color="amoled"] {
-  background: #000;
-}
+/* -- AMOLED color -- */
 
-body[data-theme-color="amoled"] #container {
-  color: #fff;
-}
+body[data-theme-color="amoled"]
+{ background: #000; }
 
-body[data-theme-color="amoled"] h1 {
-  background: rgba(0,0,0,.75);
-}
+body[data-theme-color="amoled"] #container
+{ color: #fff; }
 
-/* Light color */
+body[data-theme-color="amoled"] h1
+{ background: rgba(0,0,0,.75); }
 
-body[data-theme-color="light"] {
-  background: #fff;
-}
+/* -- Light color -- */
 
-body[data-theme-color="light"] h1 {
-  background: rgba(255,255,255,.75);
-}
+body[data-theme-color="light"]
+{ background: #fff; }
 
-body[data-theme-color="light"] #section-nav {
+body[data-theme-color="light"] h1
+{ background: rgba(255,255,255,.75); }
+
+body[data-theme-color="light"] #sidebar {
   background: rgba(26,26,26,.85);
   color: #fff;
   backdrop-filter: var(--blur);
 }
 
-body[data-theme-color="light"] kbd {
-  background: #4c6cdd;
-}
+body[data-theme-color="light"] kbd
+{ background: #4c6cdd; }
 
-body[data-theme-color="light"] #section-nav .sep {
-  border-top: 1px solid #fff;
-}
+body[data-theme-color="light"] #sidebar .sep
+{ border-top: 1px solid #fff; }
 
-body[data-theme-color="light"] #container a {
-  color: #000;
-}
+body[data-theme-color="light"] #container a
+{ color: #000; }
 
-body[data-theme-color="light"] #section-nav a,
-body[data-theme-color="light"] .reset kbd {
-  color: #fff;
-}
+body[data-theme-color="light"] #sidebar a,
+body[data-theme-color="light"] .reset kbd
+{ color: #fff; }
 
-/* Default icon view (85 vw x 85 vh) */
+// ==============
+// # Icon sizes #
+// ==============
 
-body[data-icon-size="big"] .list {
-  grid-template-columns: repeat(auto-fit, 93.5vw);
-}
+/* -- Default icon view (85 vw x 85 vh) -- */
 
-body[data-icon-size="big"] .list div {
-  padding-top: 15px;
-}
+body[data-icon-size="big"] .list
+{ grid-template-columns: repeat(auto-fit, 93.5vw); }
+
+body[data-icon-size="big"] .list div
+{ padding-top: 15px; }
 
 body[data-icon-size="big"] .list div::before,
 body[data-icon-size="big"] .list div img {
@@ -313,20 +334,18 @@ body[data-icon-size="big"] .list div img {
   width: 93.5vw;
 }
 
-/* Medium icon size (300 px x 300 px) */
+/* -- Medium icon size (300 px x 300 px) -- */
 
 body[data-icon-size="medium"] .list {
   grid-template-columns: repeat(auto-fit, 300px);
   column-gap: 3.5%;
 }
 
-body[data-icon-size="medium"] .list:empty::after {
-  margin-left: -3.1%;
-}
+body[data-icon-size="medium"] .list:empty::after
+{ margin-left: -3.1%; }
 
-body[data-icon-size="medium"] .list div {
-  padding-top: 80px;
-}
+body[data-icon-size="medium"] .list div
+{ padding-top: 80px; }
 
 body[data-icon-size="medium"] .list div::before,
 body[data-icon-size="medium"] .list div img {
@@ -334,24 +353,21 @@ body[data-icon-size="medium"] .list div img {
   height: 300px;
 }
 
-/* Small icon view (100 px x 100 px) */
+/* -- Small icon view (100 px x 100 px) -- */
 
-body[data-icon-size="small"] #container > div:last-child {
-  padding: 0 20px 5px;
-}
+body[data-icon-size="small"] #container > div:last-child
+{ padding: 0 20px 5px; }
 
 body[data-icon-size="small"] .list {
   grid-template-columns: repeat(auto-fit, 100px);
   row-gap: 0;
 }
 
-body[data-icon-size="small"] .list:empty::after {
-  margin-left: -109.5%;
-}
+body[data-icon-size="small"] .list:empty::after
+{ margin-left: -109.5%; }
 
-body[data-icon-size="small"] .list div {
-  padding-top: 80px;
-}
+body[data-icon-size="small"] .list div
+{ padding-top: 80px; }
 
 body[data-icon-size="small"] .list div::before,
 body[data-icon-size="small"] .list div img {
