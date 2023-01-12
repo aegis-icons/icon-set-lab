@@ -32,7 +32,7 @@ https://user-images.githubusercontent.com/3540275/211911546-55439249-4f6d-4d3c-8
 #### Windows only
 
 > **Note** \
-> – If you downloaded [aegis-icons](https://github.com/aegis-icons/aegis-icons) repo as ZIP, **rename unzipped folder from** `aegis-icons_master` **to** `aegis-icons`. \
+> – **Rename unzipped folder from** `aegis-icons_master` **to** `aegis-icons`. \
 > – Both `icon-set-lab` & `aegis-icons` directories **needs to be side by side in the same root directory.**
 
 - Run the [`.___get_icons` Windows BAT file](https://github.com/aegis-icons/icon-set-lab/blob/main/.___get_icons.bat).
