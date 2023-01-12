@@ -26,8 +26,9 @@ https://user-images.githubusercontent.com/3540275/211911546-55439249-4f6d-4d3c-8
 ### Getting the icons from *aegis-icons* to the lab
 
 1. Clone / fork **this project** or [download repo as ZIP](https://github.com/aegis-icons/icon-set-lab/archive/refs/heads/main.zip).
-   - Unzip the ZIP file, if you choosed *"download repo as ZIP"* option.
 2. Clone / fork [aegis-icons](https://github.com/aegis-icons/aegis-icons) project or [download it as ZIP](https://github.com/aegis-icons/aegis-icons/archive/refs/heads/master.zip).
+
+> **Note** – Unzip the ZIP files, if you choosed *"download repo as ZIP"* options.
 
 #### Windows only
 
