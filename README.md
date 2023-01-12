@@ -17,7 +17,7 @@ Helps for finding design inconsistencies and other issues in all the icons.
 
 ## Demonstration
 
-> **Warning** – **Rapidly flashing colors from 00:01 to 00:06**
+> **Warning** – **Rapidly flashing colors from 00:01 to 00:06.**
 
 https://user-images.githubusercontent.com/3540275/211911546-55439249-4f6d-4d3c-8f43-7e481fb21659.mp4
 
@@ -61,21 +61,21 @@ https://user-images.githubusercontent.com/3540275/211911546-55439249-4f6d-4d3c-8
   - Holding (page) up / (page) down / space key makes scroll sluggish and barely move.
     - [Disabling smooth scroll](https://www.tenforums.com/tutorials/112915-enable-disable-smooth-scrolling-google-chrome.html) fixes this (enables the rapid scroll like in the video), but makes mouse scroll weird.
   - **Recommended to only scroll with mouse scroll wheel or scroll bar's up / down buttons.**
-- Site is responsive, but designed only in desktop in mind (preferly 1920px+ width window)
+- Site is responsive, but designed only in desktop in mind (preferly 1920px+ width window).
 
 ## Todos
 
-- [ ] Give option to disable CSS scroll snap
+- [ ] Give option to disable CSS scroll snap.
 - [ ] _Low priority:_ Migrate from Jekyll to something faster and modern (ex. Hugo).
   - **Issue:** I don't know how to do it, Hugo and others seems so much more complicated then Jekyll.
 
 ## Credits
 
-- [HotKeys.js](https://wangchujiang.com/hotkeys/) by Kenny Wong ([MIT](https://github.com/jaywcjlove/hotkeys/blob/master/LICENSE))
-- [Inter](https://rsms.me/inter/) by Rasmus Andersson ([SIL OFL 1.1](https://github.com/rsms/inter/blob/master/LICENSE.txt))
-- [List.js](https://listjs.com/) by Jonny Strömberg ([MIT](https://github.com/javve/list.js/blob/master/LICENSE))
-- [sanitize.css](https://github.com/csstools/sanitize.css) by CSS Tools ([CC0 1.0 Universal](https://github.com/csstools/sanitize.css/blob/main/LICENSE.md))
+- [HotKeys.js](https://wangchujiang.com/hotkeys/) by Kenny Wong ([MIT](https://github.com/jaywcjlove/hotkeys/blob/master/LICENSE)).
+- [Inter](https://rsms.me/inter/) by Rasmus Andersson ([SIL OFL 1.1](https://github.com/rsms/inter/blob/master/LICENSE.txt)).
+- [List.js](https://listjs.com/) by Jonny Strömberg ([MIT](https://github.com/javve/list.js/blob/master/LICENSE)).
+- [sanitize.css](https://github.com/csstools/sanitize.css) by CSS Tools ([CC0 1.0 Universal](https://github.com/csstools/sanitize.css/blob/main/LICENSE.md)).
 
 ## License
 
-[The MIT License](LICENSE.md)
+[The MIT License](LICENSE.md).
