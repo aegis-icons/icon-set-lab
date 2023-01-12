@@ -8,6 +8,7 @@
 :root {
   --blur: blur(10px);
   --border-radius: 10px;
+  --mono: "Cascadia Mono", Consolas, "Roboto Mono", "SF Mono", "Lucida Console", "DejaVu Sans Mono", "Liberation Mono", monospace;
 }
 
 html
@@ -65,6 +66,7 @@ ul {
 // -----------------------
 
 .list {
+  font-family: var(--mono);
   display: grid;
   column-gap: 5%;
   row-gap: 50px;
@@ -78,7 +80,6 @@ ul {
 { margin-top: 40px; }
 
 .list:empty::after {
-  font-family: "Cascadia Mono", Consolas, "Roboto Mono", "SF Mono", "Lucida Console", "DejaVu Sans Mono", "Liberation Mono", monospace;
   content: "No results, try different keyword.";
   white-space: nowrap;
   text-align: center;
@@ -164,7 +165,7 @@ label {
 }
 
 kbd {
-  font-family: "Cascadia Mono", Consolas, monospace;
+  font-family: var(--mono);
   background: #9ab0ff;
   padding: 1px 4px;
   border-radius: 5px;
@@ -263,6 +264,7 @@ body[data-icon-grid$="icon-grid"] .list div::before {
 body[data-icon-grid="alt-icon-grid"] .list div::before
 { filter: invert(100%) contrast(400%) !important; }
 
+
 // ================
 // # Theme colors #
 // ================
@@ -315,6 +317,7 @@ body[data-theme-color="light"] #container a
 body[data-theme-color="light"] #sidebar a,
 body[data-theme-color="light"] .reset kbd
 { color: #fff; }
+
 
 // ==============
 // # Icon sizes #
