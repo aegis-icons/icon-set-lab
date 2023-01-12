@@ -11,7 +11,7 @@ Helps for finding design inconsistencies and other issues in all the icons.
 - Change the background color (a.k.a. theme color) for seeing icon BG contrast irregularities.
   - Features theme colors used in [Aegis](https://github.com/beemdevelopment/Aegis).
 - Change the size of the listed icons.
-- Uses [CSS scroll snapping](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Scroll_Snap) *(see the notes / caveats section)*
+- Uses [CSS scroll snapping](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Scroll_Snap) *(see the notes / caveats section)*.
 - Works 100% only with keyboard too, if needed.
   - Every function has keyboard command (see the blue squares).
 
