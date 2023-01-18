@@ -67,8 +67,8 @@ https://user-images.githubusercontent.com/3540275/211911546-55439249-4f6d-4d3c-8
 ## Todos
 
 - [ ] Give option to disable CSS scroll snap.
-- [ ] _Low priority:_ Migrate from Jekyll to something faster and modern (ex. Hugo).
-  - **Issue:** I don't know how to do it, Hugo and others seems so much more complicated then Jekyll.
+- [ ] _Low priority:_ Migrate from Jekyll to something faster and modern ([Zola](https://www.getzola.org/) possibly).
+  - **Issue:** I don't know how to do it, Zola and others seems so much more complicated then Jekyll.
 
 ## Credits
 
