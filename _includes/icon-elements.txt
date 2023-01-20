@@ -1,4 +1,0 @@
-<div>
-  <img src="{{ myimage.path }}">
-  <a href="{{ myimage.path }}" target="_blank" class="n">{{ myimage.basename }}</a>
-</div>

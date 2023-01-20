@@ -3,7 +3,7 @@ title: Icon Set Lab – aegis-icons
 ---
 
 <!DOCTYPE html>
-<html>
+<html data-icon-grid="off" data-theme-color="dark" data-icon-size="big" data-scroll-snap="on">
   <head>
     <link rel="prefetch" href="/fonts/inter-v3-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="prefetch" href="/fonts/inter-v3-latin-600.woff2" as="font" type="font/woff2" crossorigin>
@@ -16,14 +16,17 @@ title: Icon Set Lab – aegis-icons
     <script>{% include list.min.js %}{% include hotkeys.min.js %}</script>
   </head>
   
-  <body data-theme-color="dark" data-icon-grid="off" data-icon-size="big">
+  <body>
     <div id="container">
       <div id="primary-list">
         <h1>Primary</h1>
         <div class="list" id="primary">
           {% assign image_files = site.static_files | where: "is_primary", true %}
           {% for myimage in image_files %}
-            {% include icon-elements.txt %}
+            <div>
+              <img src="{{ myimage.path }}">
+              <a href="{{ myimage.path }}" target="_blank" class="n">{{ myimage.basename }}</a>
+            </div>
           {% endfor %}
         </div>
       </div>
@@ -33,7 +36,10 @@ title: Icon Set Lab – aegis-icons
         <div class="list" id="variations">
           {% assign image_files = site.static_files | where: "is_variation", true %}
           {% for myimage in image_files %}
-            {% include icon-elements.txt %}
+            <div>
+              <img src="{{ myimage.path }}">
+              <a href="{{ myimage.path }}" target="_blank" class="n">{{ myimage.basename }}</a>
+            </div>
           {% endfor %}
         </div>
       </div>
@@ -43,7 +49,10 @@ title: Icon Set Lab – aegis-icons
         <div class="list" id="generic">
           {% assign image_files = site.static_files | where: "is_generic", true %}
           {% for myimage in image_files %}
-            {% include icon-elements.txt %}
+            <div>
+              <img src="{{ myimage.path }}">
+              <a href="{{ myimage.path }}" target="_blank" class="n">{{ myimage.basename }}</a>
+            </div>
           {% endfor %}
         </div>
       </div>
@@ -53,7 +62,10 @@ title: Icon Set Lab – aegis-icons
         <div class="list" id="outdated">
           {% assign image_files = site.static_files | where: "is_outdated", true %}
           {% for myimage in image_files %}
-            {% include icon-elements.txt %}
+            <div>
+              <img src="{{ myimage.path }}">
+              <a href="{{ myimage.path }}" target="_blank" class="n">{{ myimage.basename }}</a>
+            </div>
           {% endfor %}
         </div>
       </div>
@@ -76,54 +88,64 @@ title: Icon Set Lab – aegis-icons
       <ul>
         <li><b>Icon grid:</b></li>
         <li>
-          <input type="radio" name="iconGrid" id="off-r" value="off" checked>
-          <label for="off-r">Off <i>(default)</i> <kbd>Q</kbd></label>
+          <input type="radio" name="iconGrid" id="off-grid" value="off" checked>
+          <label for="off-grid">Off <i>(default)</i> <kbd>Q</kbd></label>
         </li>
         <li>
-          <input type="radio" name="iconGrid" id="icon-grid-r" value="icon-grid">
-          <label for="icon-grid-r">Normal <kbd>W</kbd></label>
+          <input type="radio" name="iconGrid" id="icon-grid" value="icon-grid">
+          <label for="icon-grid">Normal <kbd>W</kbd></label>
         </li>
         <li>
-          <input type="radio" name="iconGrid" id="alt-icon-grid-r" value="alt-icon-grid">
-          <label for="alt-icon-grid-r">Inverted colors <kbd>E</kbd></label>
+          <input type="radio" name="iconGrid" id="alt-icon-grid" value="alt-icon-grid">
+          <label for="alt-icon-grid">Inverted colors <kbd>E</kbd></label>
         </li>
       </ul>
 
       <ul class="sep">
         <li><b>Theme color:</b></li>
         <li>
-          <input type="radio" name="themeColor" id="dark-r" value="dark" checked>
-          <label for="dark-r">Dark <i>(default)</i> <kbd>A</kbd></label>
+          <input type="radio" name="themeColor" id="dark" value="dark" checked>
+          <label for="dark">Dark <i>(default)</i> <kbd>A</kbd></label>
         </li>
         <li>
-          <input type="radio" name="themeColor" id="amoled-r" value="amoled">
-          <label for="amoled-r">AMOLED <kbd>S</kbd></label>
+          <input type="radio" name="themeColor" id="amoled" value="amoled">
+          <label for="amoled">AMOLED <kbd>S</kbd></label>
         </li>
         <li>
-          <input type="radio" name="themeColor" id="light-r" value="light">
-          <label for="light-r">Light <kbd>D</kbd></label>
+          <input type="radio" name="themeColor" id="light" value="light">
+          <label for="light">Light <kbd>D</kbd></label>
         </li>
       </ul>
       
       <ul class="sep">
         <li><b>Icon size:</b></li>
         <li>
-          <input type="radio" name="iconSize" id="big-r" value="big" checked>
-          <label for="big-r">93% viewp. <i>(default)</i> <kbd>Z</kbd></label>
+          <input type="radio" name="iconSize" id="big" value="big" checked>
+          <label for="big">93% viewp. <i>(default)</i> <kbd>Z</kbd></label>
         </li>
         <li>
-          <input type="radio" name="iconSize" id="medium-r" value="medium">
-          <label for="medium-r">300px <kbd>X</kbd></label>
+          <input type="radio" name="iconSize" id="medium" value="medium">
+          <label for="medium">300px <kbd>X</kbd></label>
         </li>
         <li>
-          <input type="radio" name="iconSize" id="small-r" value="small">
-          <label for="small-r">100px <kbd>C</kbd></label>
+          <input type="radio" name="iconSize" id="small" value="small">
+          <label for="small">100px <kbd>C</kbd></label>
+        </li>
+      </ul>
+
+      <ul class="sep">
+        <li><b>Scroll snap:</b></li>
+        <li>
+          <input type="radio" name="scrollSnap" id="on-snap" value="on" checked>
+          <label for="on-snap">Enabled <i>(default)</i> <kbd>N</kbd></label>
+        </li>
+        <li>
+          <input type="radio" name="scrollSnap" id="off-snap" value="off">
+          <label for="off-snap">Disabled <kbd>M</kbd></label>
         </li>
       </ul>
     </div>
-  
-    <script>
-      {% include bottom-scripts.js %}
-    </script>
+    
+    <script>{% include bottom-scripts.js %}</script>
   </body>
 </html>

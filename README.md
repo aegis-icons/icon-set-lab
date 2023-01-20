@@ -11,7 +11,8 @@ Helps for finding design inconsistencies and other issues in all the icons.
 - Change the background color (a.k.a. theme color) for seeing icon BG contrast irregularities.
   - Features theme colors used in [Aegis](https://github.com/beemdevelopment/Aegis).
 - Change the size of the listed icons.
-- Uses [CSS scroll snapping](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Scroll_Snap) *(see the notes / caveats section)*.
+- Uses [CSS scroll snapping](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Scroll_Snap)
+  - Has option to disable it, see the [notes / caveats](#notes--caveats) section.
 - Works 100% only with keyboard too, if needed.
   - Every function has keyboard command (see the blue squares).
 
@@ -54,19 +55,24 @@ https://user-images.githubusercontent.com/3540275/211911546-55439249-4f6d-4d3c-8
    jekyll serve --host localhost --open_url
    ```
 
+The site with http://localhost:4000/ URL should open to your default browser.
+
 ## Notes / caveats
 
 - :thumbsup: **The [CSS scroll snapping](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Scroll_Snap) works best with Firefox.**
   - If you want the rapid scroll like in the demonstration video, disable `Use smooth scrolling` from settings.
 - :warning: **Chromium-based browsers has issues with CSS scroll snap!** (As of January 2023.)
   - Holding (page) up / (page) down / space key makes scroll sluggish and barely move.
-    - [Disabling smooth scroll](https://www.tenforums.com/tutorials/112915-enable-disable-smooth-scrolling-google-chrome.html) fixes this (enables the rapid scroll like in the video), but makes mouse scroll weird.
-  - **Recommended to only scroll with mouse scroll wheel or scroll bar's up / down buttons.**
-- Site is responsive, but designed only in desktop in mind (preferly 1920px+ width window).
+  - :bulb: **Solutions:** 
+    - Disable scroll snap from lab's sidebar on the right.
+    - Only scroll with mouse scroll wheel or scroll bar's up / down buttons.
+    - [Disable smooth scroll](https://www.tenforums.com/tutorials/112915-enable-disable-smooth-scrolling-google-chrome.html) (works in any desktop Chromium-based browser, enables the rapid scroll like in the video)
+      - :warning: Makes mouse scroll act weird.
+- Site is responsive, but designed only desktop in mind (preferly 1920px+ width window).
 
 ## Todos
 
-- [ ] Give option to disable CSS scroll snap.
+- [x] Give option to disable CSS scroll snap.
 - [ ] _Low priority:_ Migrate from Jekyll to something faster and modern ([Zola](https://www.getzola.org/) possibly).
   - **Issue:** I don't know how to do it, Zola and others seems so much more complicated then Jekyll.
 

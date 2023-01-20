@@ -1,6 +1,6 @@
 // ==== Used more then once ====
+  var htmlSelector = document.querySelector('html');
   var search = document.querySelector('.search');
-  var bodySelector = document.querySelector('body');
   var placeholder = document.querySelector("#placeholder");
 
 // ==== List.js search function ====
@@ -33,7 +33,7 @@
     }
   });
 
-// ▼ Trigger search by either typing, cutting (for resetting the search) or pasting
+  // ▼ Trigger search by either typing, cutting (for resetting the search) or pasting
   ['keyup', 'paste', 'cut'].forEach(function(e) { search.addEventListener(e, searchTrigger); });
 
 // ==== Count the icons and print the results ====
@@ -46,42 +46,48 @@
 // ==== Radio button functions ====
   // ▼ Enable / change icon grid
   var iconGridRadios = document.querySelectorAll('input[type=radio][name="iconGrid"]');
-  iconGridRadios.forEach((radio) => { radio.addEventListener('change', () => bodySelector.dataset.iconGrid = radio.value); });
+  iconGridRadios.forEach((radio) => { radio.addEventListener('change', () => htmlSelector.dataset.iconGrid = radio.value); });
 
   // ▼ Change theme color
   var themeColorRadios = document.querySelectorAll('input[type=radio][name="themeColor"]');
-  themeColorRadios.forEach((radio) => { radio.addEventListener('change', () => bodySelector.dataset.themeColor = radio.value); });
+  themeColorRadios.forEach((radio) => { radio.addEventListener('change', () => htmlSelector.dataset.themeColor = radio.value); });
 
   // ▼ Change icon size
   var iconSizeRadios = document.querySelectorAll('input[type=radio][name="iconSize"]');
-  iconSizeRadios.forEach((radio) => { radio.addEventListener('change', () => bodySelector.dataset.iconSize = radio.value); });
+  iconSizeRadios.forEach((radio) => { radio.addEventListener('change', () => htmlSelector.dataset.iconSize = radio.value); });
+  
+  // ▼ Enable / disable scroll snap
+  var scrollSnapRadios = document.querySelectorAll('input[type=radio][name="scrollSnap"]');
+  scrollSnapRadios.forEach((radio) => { radio.addEventListener('change', () => htmlSelector.dataset.scrollSnap = radio.value); });
 
   // ▼ Disable focus for radio button after event (UX tweak)
   var allRadios = document.querySelectorAll('input[type=radio]');
   allRadios.forEach((radio) => { radio.addEventListener('change', () => radio.blur()); });
 
 // ==== Keyboard hotkeys (Hotkeys.js) ====
-  hotkeys('ctrl+.,1,num_1,2,num_2,3,num_3,4,num_4,q,w,e,a,s,d,z,x,c', function (event, handler){
+  hotkeys('ctrl+.,1,num_1,2,num_2,3,num_3,4,num_4,q,w,e,a,s,d,z,x,c,n,m', function (event, handler){
     switch (handler.key) {
       case 'ctrl+.':
-                document.querySelector(".search").focus();                        break;
+                document.querySelector(".search").focus();                     break;
       case '1': case 'num_1':
-                document.querySelector("#primary").scrollIntoView();              break;
+                document.querySelector("#primary").scrollIntoView();           break;
       case '2': case 'num_2':
-                document.querySelector("#variations").scrollIntoView();           break;
+                document.querySelector("#variations").scrollIntoView();        break;
       case '3': case 'num_3':
-                document.querySelector("#generic").scrollIntoView();              break;
+                document.querySelector("#generic").scrollIntoView();           break;
       case '4': case 'num_4':
-                document.querySelector("#outdated").scrollIntoView();             break;
-      case 'q': document.querySelector("input[value='off']").click();             break;
-      case 'w': document.querySelector("input[value='icon-grid']").click();       break;
-      case 'e': document.querySelector("input[value='alt-icon-grid']").click();   break;
-      case 'a': document.querySelector("input[value='dark']").click();            break;
-      case 's': document.querySelector("input[value='amoled']").click();          break;
-      case 'd': document.querySelector("input[value='light']").click();           break;
-      case 'z': document.querySelector("input[value='big']").click();             break;
-      case 'x': document.querySelector("input[value='medium']").click();          break;
-      case 'c': document.querySelector("input[value='small']").click();           break;
+                document.querySelector("#outdated").scrollIntoView();          break;
+      case 'q': document.querySelector("input[id='off-grid']").click();        break;
+      case 'w': document.querySelector("input[id='icon-grid']").click();       break;
+      case 'e': document.querySelector("input[id='alt-icon-grid']").click();   break;
+      case 'a': document.querySelector("input[id='dark']").click();            break;
+      case 's': document.querySelector("input[id='amoled']").click();          break;
+      case 'd': document.querySelector("input[id='light']").click();           break;
+      case 'z': document.querySelector("input[id='big']").click();             break;
+      case 'x': document.querySelector("input[id='medium']").click();          break;
+      case 'c': document.querySelector("input[id='small']").click();           break;
+      case 'n': document.querySelector("input[id='on-snap']").click();         break;
+      case 'm': document.querySelector("input[id='off-snap']").click();        break;
     }
   });
 
@@ -95,3 +101,7 @@
       search.blur();
     }
   };
+
+// ==== Disable CTRL + Mouse Scroll (zoom) ====
+  // For preventing accidents and it's not that useful for this site
+  document.addEventListener('wheel', function(e) { e.ctrlKey && e.preventDefault(); }, { passive: false });

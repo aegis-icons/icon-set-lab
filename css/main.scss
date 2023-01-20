@@ -8,11 +8,9 @@
 :root {
   --blur: blur(10px);
   --border-radius: 10px;
-  --mono: "Cascadia Mono", Consolas, "Roboto Mono", "SF Mono", "Lucida Console", "DejaVu Sans Mono", "Liberation Mono", monospace;
+  --mono:  Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono",
+           "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, Inconsolata, monospace;
 }
-
-html
-{ scroll-snap-type: y mandatory; }
 
 body {
   font-weight: 400;
@@ -56,9 +54,6 @@ ul {
 #container > div
 { padding: 0 20px 65px; }
 
-#container a
-{ color: #fff; }
-
 
 
 // -----------------------
@@ -66,15 +61,12 @@ ul {
 // -----------------------
 
 .list {
-  font-family: var(--mono);
+  font-family: "Cascadia Mono", "Cascadia Code", var(--mono);
   display: grid;
   column-gap: 5%;
   row-gap: 50px;
   justify-content: center;
 }
-
-.list div
-{ scroll-snap-align: start; }
 
 #primary.list:empty::after
 { margin-top: 40px; }
@@ -97,11 +89,15 @@ ul {
 { display: block; }
 
 .list div a {
+  color: #fff; 
   font-size: 0.97rem;
   padding-top: 12px;
   text-align: center;
   line-height: 1.25rem;
   display: block;
+  width: max-content;
+  margin: 0 auto;
+  text-underline-offset: 0.2em;
 }
 
 
@@ -215,6 +211,7 @@ kbd {
 }
 
 .reset {
+  font-size: 0.8rem;
   background: linear-gradient(180deg, #FF5252 0%, #9C2424 100%);
   color: #fff;
   border: 1px solid #3c3c3c;
@@ -249,19 +246,19 @@ kbd {
 
 /* -- Icon grid off -- */
 
-body[data-icon-grid="off"] .list div::before
+html[data-icon-grid="off"] .list div::before
 { background: none; }
 
-/* -- Icon grids -- */
+/* -- Icon grids enabled -- */
 
-body[data-icon-grid$="icon-grid"] .list div::before {
+html[data-icon-grid$="icon-grid"] .list div::before {
   background: url(../z_icon_grid.svg) center no-repeat;
   filter: contrast(200%);
 }
 
 /* -- Icon grid on inverted colors -- */
 
-body[data-icon-grid="alt-icon-grid"] .list div::before
+html[data-icon-grid="alt-icon-grid"] .list div::before
 { filter: invert(100%) contrast(400%) !important; }
 
 
@@ -271,51 +268,51 @@ body[data-icon-grid="alt-icon-grid"] .list div::before
 
 /* -- Dark color -- */
 
-body[data-theme-color="dark"]
+html[data-theme-color="dark"]
 { background: #2b2b2b; }
 
-body[data-theme-color="dark"] #container
+html[data-theme-color="dark"] #container
 { color: #fff; }
 
-body[data-theme-color="dark"] h1
+html[data-theme-color="dark"] h1
 { background: rgba(43,43,43,.75); }
 
 /* -- AMOLED color -- */
 
-body[data-theme-color="amoled"]
+html[data-theme-color="amoled"]
 { background: #000; }
 
-body[data-theme-color="amoled"] #container
+html[data-theme-color="amoled"] #container
 { color: #fff; }
 
-body[data-theme-color="amoled"] h1
+html[data-theme-color="amoled"] h1
 { background: rgba(0,0,0,.75); }
 
 /* -- Light color -- */
 
-body[data-theme-color="light"]
+html[data-theme-color="light"]
 { background: #fff; }
 
-body[data-theme-color="light"] h1
+html[data-theme-color="light"] h1
 { background: rgba(255,255,255,.75); }
 
-body[data-theme-color="light"] #sidebar {
+html[data-theme-color="light"] kbd
+{ background: #4c6cdd; }
+
+html[data-theme-color="light"] #sidebar {
   background: rgba(26,26,26,.85);
   color: #fff;
   backdrop-filter: var(--blur);
 }
 
-body[data-theme-color="light"] kbd
-{ background: #4c6cdd; }
-
-body[data-theme-color="light"] #sidebar .sep
+html[data-theme-color="light"] #sidebar .sep
 { border-top: 1px solid #fff; }
 
-body[data-theme-color="light"] #container a
+html[data-theme-color="light"] .list div a
 { color: #000; }
 
-body[data-theme-color="light"] #sidebar a,
-body[data-theme-color="light"] .reset kbd
+html[data-theme-color="light"] #sidebar a,
+html[data-theme-color="light"] .reset kbd
 { color: #fff; }
 
 
@@ -323,57 +320,78 @@ body[data-theme-color="light"] .reset kbd
 // # Icon sizes #
 // ==============
 
-/* -- Default icon view (85 vw x 85 vh) -- */
+/* -- Default icon view (93 vw x 93 vh) -- */
 
-body[data-icon-size="big"] .list
-{ grid-template-columns: repeat(auto-fit, 93.5vw); }
+html[data-icon-size="big"] .list
+{ grid-template-columns: repeat(auto-fit, 93vw); }
 
-body[data-icon-size="big"] .list div
+html[data-icon-size="big"] .list div
 { padding-top: 15px; }
 
-body[data-icon-size="big"] .list div::before,
-body[data-icon-size="big"] .list div img {
-  height: 93.5vh;
-  width: 93.5vw;
+html[data-icon-size="big"] .list div::before,
+html[data-icon-size="big"] .list div img {
+  height: 93vh;
+  width: 93vw;
 }
 
 /* -- Medium icon size (300 px x 300 px) -- */
 
-body[data-icon-size="medium"] .list {
+html[data-icon-size="medium"] .list {
   grid-template-columns: repeat(auto-fit, 300px);
   column-gap: 3.5%;
 }
 
-body[data-icon-size="medium"] .list:empty::after
+html[data-icon-size="medium"] .list:empty::after
 { margin-left: -3.1%; }
 
-body[data-icon-size="medium"] .list div
+html[data-icon-size="medium"] .list div
 { padding-top: 80px; }
 
-body[data-icon-size="medium"] .list div::before,
-body[data-icon-size="medium"] .list div img {
+html[data-icon-size="medium"] .list div::before,
+html[data-icon-size="medium"] .list div img {
   width: 300px;
   height: 300px;
 }
 
 /* -- Small icon view (100 px x 100 px) -- */
 
-body[data-icon-size="small"] #container > div:last-child
+html[data-icon-size="small"] #container > div:last-child
 { padding: 0 20px 5px; }
 
-body[data-icon-size="small"] .list {
+html[data-icon-size="small"] .list {
   grid-template-columns: repeat(auto-fit, 100px);
   row-gap: 0;
 }
 
-body[data-icon-size="small"] .list:empty::after
+html[data-icon-size="small"] .list:empty::after
 { margin-left: -109.5%; }
 
-body[data-icon-size="small"] .list div
+html[data-icon-size="small"] .list div
 { padding-top: 80px; }
 
-body[data-icon-size="small"] .list div::before,
-body[data-icon-size="small"] .list div img {
+html[data-icon-size="small"] .list div::before,
+html[data-icon-size="small"] .list div img {
   height: 100px;
   width: 100px;
 }
+
+
+// ===============
+// # Scroll snap #
+// ===============
+
+/* -- Enabled (default) -- */
+
+html[data-scroll-snap="on"]
+{ scroll-snap-type: y mandatory; }
+
+html[data-scroll-snap="on"] .list div
+{ scroll-snap-align: start; }
+
+/* -- Disabled -- */
+
+html[data-scroll-snap="off"]
+{ scroll-snap-type: unset; }
+
+html[data-scroll-snap="off"] .list div
+{ scroll-snap-align: unset; }
