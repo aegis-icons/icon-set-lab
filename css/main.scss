@@ -88,15 +88,14 @@ ul {
 .list div img
 { display: block; }
 
-.list div a {
-  color: #fff; 
-  font-size: 0.97rem;
-  padding-top: 12px;
+.n {
   text-align: center;
-  line-height: 1.25rem;
-  display: block;
-  width: max-content;
-  margin: 0 auto;
+  margin: 12px 0 0 0;
+}
+
+.n a {
+  color: #fff;
+  font-size: 0.97rem;
   text-underline-offset: 0.2em;
 }
 
@@ -356,7 +355,7 @@ html[data-icon-size="medium"] .list div img {
 /* -- Small icon view (100 px x 100 px) -- */
 
 html[data-icon-size="small"] #container > div:last-child
-{ padding: 0 20px 5px; }
+{ padding: 0 20px 20px; }
 
 html[data-icon-size="small"] .list {
   grid-template-columns: repeat(auto-fit, 100px);
