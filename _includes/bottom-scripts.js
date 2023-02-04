@@ -33,8 +33,8 @@
     }
   });
 
-  // ▼ Trigger search by either typing, cutting (for resetting the search) or pasting
-  ['keyup', 'paste', 'cut'].forEach(function(e) { search.addEventListener(e, searchTrigger); });
+  // ▼ Trigger search
+  ['input'].forEach(function(e) { search.addEventListener(e, searchTrigger); });
 
 // ==== Count the icons and print the results ====
   document.getElementById("total-icon-count").innerHTML = document.querySelectorAll('.n').length;
