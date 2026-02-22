@@ -1,7 +1,7 @@
 The MIT License (MIT)
 =====================
 
-Copyright © 2023 Kristian Salonen
+Copyright © 2026 The aegis-icons Project
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
