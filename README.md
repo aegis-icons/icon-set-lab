@@ -18,7 +18,8 @@ Helps for finding design inconsistencies and other issues in all the icons.
 
 ## Demonstration
 
-> **Warning** – **Rapidly flashing colors from 00:01 to 00:06.**
+> > [!CAUTION]
+> **Rapidly flashing colors in the video from 00:01 to 00:06.**
 
 https://user-images.githubusercontent.com/3540275/211911546-55439249-4f6d-4d3c-8f43-7e481fb21659.mp4
 
