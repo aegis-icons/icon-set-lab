@@ -30,11 +30,13 @@ https://user-images.githubusercontent.com/3540275/211911546-55439249-4f6d-4d3c-8
 1. Clone / fork **this project** or [download repo as ZIP](https://github.com/aegis-icons/icon-set-lab/archive/refs/heads/main.zip).
 2. Clone / fork [aegis-icons](https://github.com/aegis-icons/aegis-icons) project or [download it as ZIP](https://github.com/aegis-icons/aegis-icons/archive/refs/heads/master.zip).
 
-> **Note** – Unzip the ZIP files, if you downloaded the repos as ZIP.
+> [!NOTE]
+> Unzip the ZIP files, if you downloaded the repos as ZIP.
 
 #### Windows only
 
-> **Note** – Both `icon-set-lab` & `aegis-icons` (or `aegis-icons-master`) directories **needs to be side by side in the same root directory.**
+> [!NOTE]
+> Both `icon-set-lab` & `aegis-icons` (or `aegis-icons-master`) directories **needs to be side by side in the same root directory.**
 
 - Run the [`.___get_icons` Windows BAT file](https://github.com/aegis-icons/icon-set-lab/blob/main/.___get_icons.bat).
 
