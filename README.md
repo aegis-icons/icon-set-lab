@@ -33,28 +33,64 @@ https://user-images.githubusercontent.com/3540275/211911546-55439249-4f6d-4d3c-8
 > [!NOTE]
 > Unzip the ZIP files, if you downloaded the repos as ZIP.
 
-#### Windows only
+#### Windows
 
-> [!NOTE]
+> [!IMPORTANT]
 > Both `icon-set-lab` & `aegis-icons` (or `aegis-icons-master`) directories **needs to be side by side in the same root directory.**
 
-- Run the [`.___get_icons` Windows BAT file](https://github.com/aegis-icons/icon-set-lab/blob/main/.___get_icons.bat).
+- Run the [`1__get_icons.bat`](https://github.com/aegis-icons/icon-set-lab/blob/main/z__bat-scripts/1__get_icons.bat) in the `z__bat-scripts` directory.
 
-#### Other OSes / alternative way
+#### Linux (with shell)
 
-- Copy-paste `icons` folder from `aegis-icons` dir to `icon-set-lab` root.
-- Copy-paste `z_icon_grid.svg` from `aegis-icons\_templates` dir to `icon-set-lab` root. 
+> [!IMPORTANT]
+> Both `icon-set-lab` & `aegis-icons` (or `aegis-icons-master`) directories **needs to be side by side in the same root directory.**
 
-### Launching the lab locally
+1. Go to `z__sh-scripts` directory on the terminal.
+2. Check that `1__get_icons.sh` has execution permission by running:
+   ```sh
+   chmod +x 1__get_icons.sh
+   ```
+   <sup><i>(you'll only need do this once).</i></sup>
+3. Run the [`1__get_icons.sh file`](https://github.com/aegis-icons/icon-set-lab/blob/main/z__sh-scripts/1__get_icons.sh).
+
+#### Other OSes / manual way
+
+1. Copy-paste `icons` folder from `aegis-icons` dir to `icon-set-lab` root.
+2. Copy-paste `z_icon_grid.svg` from `aegis-icons\_templates` dir to `icon-set-lab` root. 
+
+### Launching the local Jekyll server
+
+#### Initial server setup
 
 1. [Install Ruby and Jekyll with guides here](https://jekyllrb.com/docs/installation/#guides).
-2. Run `bundle` in the terminal at site's root directory.
-3. Start the server.
-   1. **In Windows**, run [`.___start_jekyll_server` Windows BAT script](https://github.com/aegis-icons/icon-set-lab/blob/main/.___start_jekyll_server.bat).
-   2.  **For other OSes / alternative way**, run this in the terminal at lab's root directory:
-   ```cmd
-   jekyll serve --host localhost --open_url
+2. Run `bundle` in the terminal at lab's root directory.
+
+#### Start the server in Windows
+
+- Run [`2__start_jekyll_server.bat` file](https://github.com/aegis-icons/icon-set-lab/blob/main/z__bat-scripts/2__start_jekyll_server.bat).
+
+#### Start the server in Linux (with shell)
+
+1. Go to `z__sh-scripts` directory on the terminal.
+2. Check that `2__start_jekyll_server.sh` has execution permission by running:
+   ```sh
+   chmod +x 2__start_jekyll_server.sh
    ```
+   <sup><i>(you'll only need do this once).</i></sup>
+3. Run the [`2__start_jekyll_server.sh file`](https://github.com/aegis-icons/icon-set-lab/blob/main/z__sh-scripts/2__start_jekyll_server.sh).
+
+#### Start the server in other OSes / manual way
+
+- Run this in the terminal at lab's root directory:
+```
+jekyll serve --host localhost --open_url
+```
+
+#### Troubleshooting
+
+- If Jekyll won't launch, run `bundle clean --force` in the terminal at lab's root directory, then try launching Jekyll again.
+
+---
 
 The site with http://localhost:4000/ URL should open to your default browser.
 

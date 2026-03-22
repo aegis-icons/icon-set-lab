@@ -1,8 +1,9 @@
 exclude:
- - .___get_icons.bat
- - .___start_jekyll_server.bat
+ - z__sh-scripts/
+ - z__bat-scripts/
  - LICENSE.md
  - README.md
+ - .gitignore
  
 defaults:
   - scope:
@@ -20,11 +21,6 @@ defaults:
     values:
       image: true
       is_generic: true
-  - scope:
-      path: "icons/4_Outdated"
-    values:
-      image: true
-      is_outdated: true
 
 sass:
   style: compressed

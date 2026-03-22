@@ -1,4 +1,5 @@
 @echo off
+cd ..
 set website-root=%cd%
 cd ..
 if exist aegis-icons\ (
