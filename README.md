@@ -123,7 +123,7 @@ bundle exec jekyll serve --host localhost --open_url
 
 ## Credits
 
-- [Departure Mono](https://departuremono.com/) font by Helena Zhang ([SIL OFL 1.1](https://github.com/rektdeckard/departure-mono/blob/main/public/assets/LICENSE))
+- [Departure Mono](https://departuremono.com/) font by Helena Zhang ([SIL OFL 1.1](https://github.com/rektdeckard/departure-mono/blob/main/public/assets/LICENSE)).
 - [HotKeys.js](https://jaywcjlove.github.io/hotkeys-js) by Kenny Wong, Thomas Fuchs ([MIT](https://github.com/jaywcjlove/hotkeys/blob/master/LICENSE)).
 - [Inter](https://rsms.me/inter/) font by Rasmus Andersson ([SIL OFL 1.1](https://github.com/rsms/inter/blob/master/LICENSE.txt)).
 - [List.js](https://listjs.com/) by Jonny Strömberg ([MIT](https://github.com/javve/list.js/blob/master/LICENSE)).
