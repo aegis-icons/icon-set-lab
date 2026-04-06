@@ -6,7 +6,7 @@ Helps for finding design inconsistencies and other issues on all the icons, crea
 
 - Display the icon grid for seeing logo size irregularities.
 - Change the site background color for seeing icon contrast irregularities.
-  - Features theme colors used in Aegis Authenticator 3+ (AMOLED, Dark, Light).
+  - Features theme colors used in Aegis Authenticator v3: AMOLED, Dark, Light.
 - Change the size of the listed icons.
   - Options to see icons in almost full page sized or simulated<b>*</b> Aegis's icon container sizes.
 - Filter the icons by name, instantaneous search.
