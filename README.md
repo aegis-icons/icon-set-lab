@@ -1,20 +1,23 @@
 # "Icon set lab" for aegis-icons
 
-Helps for finding design inconsistencies and other issues in all the icons.
+Helps for finding design inconsistencies and other issues on all the icons, created specifically to help process of maintaining and designing icons for [Aegis Authenticator](https://github.com/beemdevelopment/Aegis).
 
 ## Features
 
-- Filter the icons by name.
-- Jump between categories.
-- Calculates how many icons are in the lab.
 - Display the icon grid for seeing logo size irregularities.
-- Change the background color (a.k.a. theme color) for seeing icon BG contrast irregularities.
-  - Features theme colors used in [Aegis](https://github.com/beemdevelopment/Aegis).
+- Change the site background color for seeing icon contrast irregularities.
+  - Features theme colors used in Aegis Authenticator 3+ (AMOLED, Dark, Light).
 - Change the size of the listed icons.
-- Uses [CSS scroll snapping](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Scroll_Snap)
+  - Options to see icons in almost full page sized or simulated<b>*</b> Aegis's icon container sizes.
+- Filter the icons by name, instantaneous search.
+- Jump between icon categories.
+- Calculates how many icons are in the lab in total and categories separately.
+- Uses [CSS scroll snapping](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Scroll_Snap).
   - Has option to disable it, see the [notes / caveats](#notes--caveats) section.
 - Works 100% only with keyboard too, if needed.
-  - Every function has keyboard command (see the blue squares).
+  - Every function has keyboard shortcut (see the blue squares).
+  
+<b>*</b> <i><sub>Currently not accurately calculated, just eyeballed being "close enough".<sub></i>
 
 ## Demonstration
 
@@ -30,7 +33,7 @@ https://user-images.githubusercontent.com/3540275/211911546-55439249-4f6d-4d3c-8
 1. Clone / fork **this project** or [download repo as ZIP](https://github.com/aegis-icons/icon-set-lab/archive/refs/heads/main.zip).
 2. Clone / fork [aegis-icons](https://github.com/aegis-icons/aegis-icons) project or [download it as ZIP](https://github.com/aegis-icons/aegis-icons/archive/refs/heads/master.zip).
 
-> [!NOTE]
+> [!IMPORTANT]
 > Unzip the ZIP files, if you downloaded the repos as ZIP.
 
 #### Windows
@@ -38,9 +41,9 @@ https://user-images.githubusercontent.com/3540275/211911546-55439249-4f6d-4d3c-8
 > [!IMPORTANT]
 > Both `icon-set-lab` & `aegis-icons` (or `aegis-icons-master`) directories **needs to be side by side in the same root directory.**
 
-- Run the [`1__get_icons.bat`](https://github.com/aegis-icons/icon-set-lab/blob/main/z__bat-scripts/1__get_icons.bat) in the `z__bat-scripts` directory.
+- Run the `1__get_icons.bat` script in the `z__bat-scripts` directory.
 
-#### Linux (with shell)
+#### Linux (with bash)
 
 > [!IMPORTANT]
 > Both `icon-set-lab` & `aegis-icons` (or `aegis-icons-master`) directories **needs to be side by side in the same root directory.**
@@ -51,7 +54,7 @@ https://user-images.githubusercontent.com/3540275/211911546-55439249-4f6d-4d3c-8
    chmod +x 1__get_icons.sh
    ```
    <sup><i>(you'll only need do this once).</i></sup>
-3. Run the [`1__get_icons.sh file`](https://github.com/aegis-icons/icon-set-lab/blob/main/z__sh-scripts/1__get_icons.sh).
+3. Run the `1__get_icons.sh` script.
 
 #### Other OSes / manual way
 
@@ -62,14 +65,16 @@ https://user-images.githubusercontent.com/3540275/211911546-55439249-4f6d-4d3c-8
 
 #### Initial server setup
 
-1. [Install Ruby and Jekyll with guides here](https://jekyllrb.com/docs/installation/#guides).
-2. Run `bundle` in the terminal at lab's root directory.
+1. [Install Ruby, Bundler & Jekyll with guides here](https://jekyllrb.com/docs/installation/#guides).
+2. Run `bundle install` in the terminal at lab's root directory.
 
 #### Start the server in Windows
 
-- Run [`2__start_jekyll_server.bat` file](https://github.com/aegis-icons/icon-set-lab/blob/main/z__bat-scripts/2__start_jekyll_server.bat).
+- Run `2__start_jekyll_server.bat` script in the z__bat-scripts directory.
 
-#### Start the server in Linux (with shell)
+*The lab should open to your default browser after this.*
+
+#### Start the server in Linux (with bash)
 
 1. Go to `z__sh-scripts` directory on the terminal.
 2. Check that `2__start_jekyll_server.sh` has execution permission by running:
@@ -77,22 +82,25 @@ https://user-images.githubusercontent.com/3540275/211911546-55439249-4f6d-4d3c-8
    chmod +x 2__start_jekyll_server.sh
    ```
    <sup><i>(you'll only need do this once).</i></sup>
-3. Run the [`2__start_jekyll_server.sh file`](https://github.com/aegis-icons/icon-set-lab/blob/main/z__sh-scripts/2__start_jekyll_server.sh).
+3. Run the `2__start_jekyll_server.sh` script.
+
+*The lab should open to your default browser after this.*
 
 #### Start the server in other OSes / manual way
 
-- Run this in the terminal at lab's root directory:
+Run this in the terminal at lab's root directory:
 ```
-jekyll serve --host localhost --open_url
+bundle exec jekyll serve --host localhost --open_url
 ```
+
+*The lab should open to your default browser after this.*
 
 #### Troubleshooting
 
-- If Jekyll won't launch, run `bundle clean --force` in the terminal at lab's root directory, then try launching Jekyll again.
-
----
-
-The site with http://localhost:4000/ URL should open to your default browser.
+- **Some assets on the site are broken:**
+  - Stop Ruby & Jekyll, remove `_site` folder, run Jekyll again.
+- **Jekyll won't launch:**
+  - Run `bundle clean --force` in the terminal at lab's root directory, run Jekyll again.
 
 ## Notes / caveats
 

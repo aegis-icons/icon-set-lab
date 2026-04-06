@@ -3,16 +3,17 @@ title: Icon Set Lab – aegis-icons
 ---
 
 <!DOCTYPE html>
-<html data-icon-grid="off" data-theme-color="dark" data-icon-size="big" data-scroll-snap="on">
+<html data-icon-grid="off" data-theme-color="amoled" data-icon-size="size-1" data-scroll-snap="on">
   <head>
     <link rel="prefetch" href="/fonts/inter-v3-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="prefetch" href="/fonts/inter-v3-latin-600.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/fonts.css">
     <link rel="stylesheet" href="/css/main.css">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ page.title }}</title>
-    <style>{% include sanitize.min.css %}{% include fonts.min.css %}</style>
+    <style>{% include sanitize.min.css %}</style>
     <script>{% include list.min.js %}</script>
     <script>{% include hotkeys.min.js %}</script>
   </head>
@@ -27,7 +28,7 @@ title: Icon Set Lab – aegis-icons
             <div>
               <img src="{{ myimage.path }}">
               <p class="n">
-                <a href="{{ myimage.path }}" target="_blank">{{ myimage.basename }}</a>
+                <a href="{{ myimage.path }}" target="_blank" title="{{ myimage.basename }}">{{ myimage.basename }}</a>
               </p>
             </div>
           {% endfor %}
@@ -42,7 +43,7 @@ title: Icon Set Lab – aegis-icons
             <div>
               <img src="{{ myimage.path }}">
               <p class="n">
-                <a href="{{ myimage.path }}" target="_blank">{{ myimage.basename }}</a>
+                <a href="{{ myimage.path }}" target="_blank" title="{{ myimage.basename }}">{{ myimage.basename }}</a>
               </p>
             </div>
           {% endfor %}
@@ -57,26 +58,14 @@ title: Icon Set Lab – aegis-icons
             <div>
               <img src="{{ myimage.path }}">
               <p class="n">
-                <a href="{{ myimage.path }}" target="_blank">{{ myimage.basename }}</a>
+                <a href="{{ myimage.path }}" target="_blank" title="{{ myimage.basename }}">{{ myimage.basename }}</a>
               </p>
             </div>
           {% endfor %}
         </div>
       </div>
   
-      <div id="outdated-list">
-        <h1>Outdated</h1>
-        <div class="list" id="outdated">
-          {% assign image_files = site.static_files | where: "is_outdated", true %}
-          {% for myimage in image_files %}
-            <div>
-              <img src="{{ myimage.path }}">
-              <p class="n">
-                <a href="{{ myimage.path }}" target="_blank">{{ myimage.basename }}</a>
-              </p>
-            </div>
-          {% endfor %}
-        </div>
+
       </div>
     </div>
   
@@ -85,10 +74,9 @@ title: Icon Set Lab – aegis-icons
       <span id="placeholder"><span>Filter</span><kbd>CTRL + .</kbd></span>
       <button class="reset"><span>Clear</span><kbd>ESC</kbd></button>
       <ul>
-        <li><kbd>1</kbd><a href="#primary">Primary</a><span>:</span> <b id="icon-amount-pri">...</b></li>
-        <li><kbd>2</kbd><a href="#variations">Var / Alt</a><span>:</span> <b id="icon-amount-var">...</b></li>
-        <li><kbd>3</kbd><a href="#generic">Generic</a><span>:</span> <b id="icon-amount-gen">...</b></li>
-        <li><kbd>4</kbd><a href="#outdated">Outdated</a><span>:</span> <b id="icon-amount-out">...</b></li>
+        <li><kbd>I</kbd><a href="#primary">Primary</a><span>:</span> <b id="icon-amount-pri">...</b></li>
+        <li><kbd>O</kbd><a href="#variations">Var / Alt</a><span>:</span> <b id="icon-amount-var">...</b></li>
+        <li><kbd>P</kbd><a href="#generic">Generic</a><span>:</span> <b id="icon-amount-gen">...</b></li>
         <li class="sep">Total: <b id="total-icon-count">...</b></li>
       </ul>
     </div>
@@ -102,23 +90,23 @@ title: Icon Set Lab – aegis-icons
         </li>
         <li>
           <input type="radio" name="iconGrid" id="icon-grid" value="icon-grid">
-          <label for="icon-grid">Normal <kbd>W</kbd></label>
+          <label for="icon-grid">On <kbd>W</kbd></label>
         </li>
         <li>
           <input type="radio" name="iconGrid" id="alt-icon-grid" value="alt-icon-grid">
-          <label for="alt-icon-grid">Inverted colors <kbd>E</kbd></label>
+          <label for="alt-icon-grid">On w/ inverted colors <kbd>E</kbd></label>
         </li>
       </ul>
 
       <ul class="sep">
         <li><b>Theme color:</b></li>
         <li>
-          <input type="radio" name="themeColor" id="dark" value="dark" checked>
-          <label for="dark">Dark <i>(default)</i> <kbd>A</kbd></label>
+          <input type="radio" name="themeColor" id="amoled" value="amoled" checked>
+          <label for="amoled">AMOLED <i>(default)</i> <kbd>A</kbd></label>
         </li>
         <li>
-          <input type="radio" name="themeColor" id="amoled" value="amoled">
-          <label for="amoled">AMOLED <kbd>S</kbd></label>
+          <input type="radio" name="themeColor" id="dark" value="dark">
+          <label for="dark">Dark <kbd>S</kbd></label>
         </li>
         <li>
           <input type="radio" name="themeColor" id="light" value="light">
@@ -129,16 +117,16 @@ title: Icon Set Lab – aegis-icons
       <ul class="sep">
         <li><b>Icon size:</b></li>
         <li>
-          <input type="radio" name="iconSize" id="big" value="big" checked>
-          <label for="big">93% viewp. <i>(default)</i> <kbd>Z</kbd></label>
+          <input type="radio" name="iconSize" id="size-1" value="size-1" checked>
+          <label for="size-1">93% viewp. <i>(default)</i> <kbd>Z</kbd></label>
         </li>
         <li>
-          <input type="radio" name="iconSize" id="medium" value="medium">
-          <label for="medium">300px <kbd>X</kbd></label>
+          <input type="radio" name="iconSize" id="size-2" value="size-2">
+          <label for="size-2">60px <kbd>X</kbd></label>
         </li>
         <li>
-          <input type="radio" name="iconSize" id="small" value="small">
-          <label for="small">100px <kbd>C</kbd></label>
+          <input type="radio" name="iconSize" id="size-3" value="size-3">
+          <label for="size-3">40px <kbd>C</kbd></label>
         </li>
       </ul>
 

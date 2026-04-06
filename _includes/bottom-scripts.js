@@ -4,14 +4,14 @@
   var placeholder = document.querySelector("#placeholder");
 
 // ==== List.js search function ====
-  var listNames = ['primary-list', 'variations-list', 'generic-list', 'outdated-list'];
+  var listNames = ['primary-list', 'variations-list', 'generic-list'];
   var lists = listNames.map(function (name) { return new List(name, { valueNames: ['n'] }); });
 
   var searchTrigger = function (e) {
     var searchValue = this.value;
     lists.forEach(function (list) { list.search(searchValue); }); 
 
-    // ▼ Fixes weird possible Firefox bug that triggers scroll up when pressing CTRL
+    // ▼ Fixes weird (possibly) Firefox bug that triggers scroll up when pressing CTRL
     search.addEventListener('keydown', function(event) {
       if (event.ctrlKey) { void(0); } 
       else { document.documentElement.scrollTo({ top: 0 }); }
@@ -41,7 +41,6 @@
   document.getElementById("icon-amount-pri").innerHTML  = document.querySelectorAll('#primary-list .n').length;
   document.getElementById("icon-amount-var").innerHTML  = document.querySelectorAll('#variations-list .n').length;
   document.getElementById("icon-amount-gen").innerHTML  = document.querySelectorAll('#generic-list .n').length;
-  document.getElementById("icon-amount-out").innerHTML  = document.querySelectorAll('#outdated-list .n').length;
 
 // ==== Radio button functions ====
   // ▼ Enable / change icon grid
@@ -65,29 +64,28 @@
   allRadios.forEach((radio) => { radio.addEventListener('change', () => radio.blur()); });
 
 // ==== Keyboard hotkeys (Hotkeys.js) ====
-  hotkeys('ctrl+.,1,num_1,2,num_2,3,num_3,4,num_4,q,w,e,a,s,d,z,x,c,n,m', function (event, handler){
+  hotkeys('ctrl+.,i,o,p,q,w,e,a,s,d,z,x,c,n,m', function (event, handler){
     switch (handler.key) {
-      case 'ctrl+.':
-                document.querySelector(".search").focus();                     break;
-      case '1': case 'num_1':
-                document.querySelector("#primary").scrollIntoView();           break;
-      case '2': case 'num_2':
-                document.querySelector("#variations").scrollIntoView();        break;
-      case '3': case 'num_3':
-                document.querySelector("#generic").scrollIntoView();           break;
-      case '4': case 'num_4':
-                document.querySelector("#outdated").scrollIntoView();          break;
-      case 'q': document.querySelector("input[id='off-grid']").click();        break;
-      case 'w': document.querySelector("input[id='icon-grid']").click();       break;
-      case 'e': document.querySelector("input[id='alt-icon-grid']").click();   break;
-      case 'a': document.querySelector("input[id='dark']").click();            break;
-      case 's': document.querySelector("input[id='amoled']").click();          break;
-      case 'd': document.querySelector("input[id='light']").click();           break;
-      case 'z': document.querySelector("input[id='big']").click();             break;
-      case 'x': document.querySelector("input[id='medium']").click();          break;
-      case 'c': document.querySelector("input[id='small']").click();           break;
-      case 'n': document.querySelector("input[id='on-snap']").click();         break;
-      case 'm': document.querySelector("input[id='off-snap']").click();        break;
+      case 'ctrl+.': document.querySelector(".search").focus();                     break;
+      
+      case 'i':      document.querySelector("#primary").scrollIntoView();           break;
+      case 'o':      document.querySelector("#variations").scrollIntoView();        break;
+      case 'p':      document.querySelector("#generic").scrollIntoView();           break;
+      
+      case 'q':      document.querySelector("input[id='off-grid']").click();        break;
+      case 'w':      document.querySelector("input[id='icon-grid']").click();       break;
+      case 'e':      document.querySelector("input[id='alt-icon-grid']").click();   break;
+      
+      case 'a':      document.querySelector("input[id='amoled']").click();          break;
+      case 's':      document.querySelector("input[id='dark']").click();            break;
+      case 'd':      document.querySelector("input[id='light']").click();           break;
+      
+      case 'z':      document.querySelector("input[id='size-1']").click();          break;
+      case 'x':      document.querySelector("input[id='size-2']").click();          break;
+      case 'c':      document.querySelector("input[id='size-3']").click();          break;
+      
+      case 'n':      document.querySelector("input[id='on-snap']").click();         break;
+      case 'm':      document.querySelector("input[id='off-snap']").click();        break;
     }
   });
 

@@ -8,8 +8,7 @@
 :root {
   --blur: blur(10px);
   --border-radius: 10px;
-  --mono:  Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono",
-           "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, Inconsolata, monospace;
+  --mono: DepartureMono, monospace;
 }
 
 body {
@@ -18,7 +17,7 @@ body {
 }
 
 body, input, button
-{ font-family: "Inter", "Roboto", "Segoe UI", system, -apple-system, ".SFNSText-Regular", "San Francisco", "Helvetica Neue", "Lucida Grande", sans-serif; }
+{ font-family: Inter, sans-serif; }
 
 h1 {
   border-radius: var(--border-radius);
@@ -47,8 +46,8 @@ ul {
 }
 
 #container {
-  max-width: 1452px;
-  margin: -16px auto 0;
+  max-width: 74vw;
+  margin: 0 auto;
 }
 
 #container > div
@@ -61,7 +60,7 @@ ul {
 // -----------------------
 
 .list {
-  font-family: "Cascadia Mono", "Cascadia Code", var(--mono);
+  font-family: var(--mono);
   display: grid;
   column-gap: 5%;
   row-gap: 50px;
@@ -90,13 +89,13 @@ ul {
 
 .n {
   text-align: center;
-  margin: 12px 0 0 0;
+  margin: 6px 0 0 0;
 }
 
 .n a {
   color: #fff;
-  font-size: 0.97rem;
-  text-underline-offset: 0.2em;
+  text-underline-offset: .2em;
+  word-break: break-word;
 }
 
 
@@ -129,8 +128,7 @@ ul {
   user-select: none;
 }
 
-#sidebar a
-{ color: #000; }
+#sidebar a { color: #000; }
 
 #sidebar li
 { list-style: none; }
@@ -154,14 +152,15 @@ ul {
 // ---------------------------------------------
 
 label {
-  font-size: 0.775rem;
+  font-size: .745rem;
   display: inline-block;
   width: calc(100% - 20px);
 }
 
 kbd {
   font-family: var(--mono);
-  background: #9ab0ff;
+  font-size: .85rem;
+  background: #809cff;
   padding: 1px 4px;
   border-radius: 5px;
 }
@@ -265,17 +264,6 @@ html[data-icon-grid="alt-icon-grid"] .list div::before
 // # Theme colors #
 // ================
 
-/* -- Dark color -- */
-
-html[data-theme-color="dark"]
-{ background: #2b2b2b; }
-
-html[data-theme-color="dark"] #container
-{ color: #fff; }
-
-html[data-theme-color="dark"] h1
-{ background: rgba(43,43,43,.75); }
-
 /* -- AMOLED color -- */
 
 html[data-theme-color="amoled"]
@@ -287,13 +275,24 @@ html[data-theme-color="amoled"] #container
 html[data-theme-color="amoled"] h1
 { background: rgba(0,0,0,.75); }
 
+/* -- Dark color -- */
+
+html[data-theme-color="dark"]
+{ background: #1f1e23; }
+
+html[data-theme-color="dark"] #container
+{ color: #fff; }
+
+html[data-theme-color="dark"] h1
+{ background: rgba(31,30,35,.75); }
+
 /* -- Light color -- */
 
 html[data-theme-color="light"]
-{ background: #fff; }
+{ background: #efedf2; }
 
 html[data-theme-color="light"] h1
-{ background: rgba(255,255,255,.75); }
+{ background: rgba(239,237,242,.75); }
 
 html[data-theme-color="light"] kbd
 { background: #4c6cdd; }
@@ -319,59 +318,73 @@ html[data-theme-color="light"] .reset kbd
 // # Icon sizes #
 // ==============
 
-/* -- Default icon view (93 vw x 93 vh) -- */
+/* -- 93 vw x 93 vh -- */
 
-html[data-icon-size="big"] .list
+html[data-icon-size="size-1"] .list
 { grid-template-columns: repeat(auto-fit, 93vw); }
 
-html[data-icon-size="big"] .list div
+html[data-icon-size="size-1"] .list div
 { padding-top: 15px; }
 
-html[data-icon-size="big"] .list div::before,
-html[data-icon-size="big"] .list div img {
+html[data-icon-size="size-1"] .list div::before,
+html[data-icon-size="size-1"] .list div img {
   height: 93vh;
   width: 93vw;
 }
 
-/* -- Medium icon size (300 px x 300 px) -- */
+html[data-icon-size="size-1"] .n a
+{ font-size: .9rem; }
 
-html[data-icon-size="medium"] .list {
-  grid-template-columns: repeat(auto-fit, 300px);
+/* -- 60 px x 60 px -- */
+
+html[data-icon-size="size-2"] .list {
+  grid-template-columns: repeat(auto-fit, 60px);
   column-gap: 3.5%;
-}
-
-html[data-icon-size="medium"] .list:empty::after
-{ margin-left: -3.1%; }
-
-html[data-icon-size="medium"] .list div
-{ padding-top: 80px; }
-
-html[data-icon-size="medium"] .list div::before,
-html[data-icon-size="medium"] .list div img {
-  width: 300px;
-  height: 300px;
-}
-
-/* -- Small icon view (100 px x 100 px) -- */
-
-html[data-icon-size="small"] #container > div:last-child
-{ padding: 0 20px 20px; }
-
-html[data-icon-size="small"] .list {
-  grid-template-columns: repeat(auto-fit, 100px);
   row-gap: 0;
 }
 
-html[data-icon-size="small"] .list:empty::after
-{ margin-left: -109.5%; }
+html[data-icon-size="size-2"] .list:empty::after
+{ margin-left: -3.1%; }
 
-html[data-icon-size="small"] .list div
+html[data-icon-size="size-2"] .list div
 { padding-top: 80px; }
 
-html[data-icon-size="small"] .list div::before,
-html[data-icon-size="small"] .list div img {
-  height: 100px;
-  width: 100px;
+html[data-icon-size="size-2"] .list div::before,
+html[data-icon-size="size-2"] .list div img {
+  width: 60px;
+  height: 60px;
+}
+
+html[data-icon-size="size-2"] .n a {
+  font-size: .7rem;
+  display: block;
+}
+
+/* -- 40 px x 40 px -- */
+
+html[data-icon-size="size-3"] #container > div:last-child
+{ padding: 0 20px 20px; }
+
+html[data-icon-size="size-3"] .list {
+  grid-template-columns: repeat(auto-fit, 40px);
+  row-gap: 0;
+}
+
+html[data-icon-size="size-3"] .list:empty::after
+{ margin-left: -109.5%; }
+
+html[data-icon-size="size-3"] .list div
+{ padding-top: 80px; }
+
+html[data-icon-size="size-3"] .list div::before,
+html[data-icon-size="size-3"] .list div img {
+  height: 40px;
+  width: 40px;
+}
+
+html[data-icon-size="size-3"] .n a {
+  font-size: .55rem; 
+  display: block;
 }
 
 
