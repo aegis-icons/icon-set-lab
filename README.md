@@ -105,7 +105,7 @@ bundle exec jekyll serve --host localhost --open_url
 ## Notes / caveats
 
 - :thumbsup: **The [CSS scroll snapping](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Scroll_Snap) works best with Firefox.**
-  - If you want the rapid scroll like in the demonstration video, disable `Use smooth scrolling` from settings.
+  - If you want the rapid scroll like in the demonstration video, disable `Use smooth scrolling` from Firefox's browsing settings.
 - :warning: **Chromium-based browsers has issues with CSS scroll snap!** (As of January 2023.)
   - Holding (page) up / (page) down / space key makes scroll sluggish and barely move.
   - :bulb: **Solutions:** 
