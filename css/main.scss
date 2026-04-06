@@ -8,7 +8,6 @@
 :root {
   --blur: blur(10px);
   --border-radius: 10px;
-  --mono: DepartureMono, monospace;
 }
 
 body {
@@ -21,11 +20,11 @@ body, input, button
 
 h1 {
   border-radius: var(--border-radius);
+  display: inline;
   font-size: 1.5rem;
   padding: 5px;
   position: sticky;
   top: 15px;
-  display: inline;
   z-index: 1;
 }
 
@@ -46,8 +45,8 @@ ul {
 }
 
 #container {
-  max-width: 74vw;
   margin: 0 auto;
+  max-width: 74vw;
 }
 
 #container > div
@@ -60,11 +59,12 @@ ul {
 // -----------------------
 
 .list {
-  font-family: var(--mono);
-  display: grid;
   column-gap: 5%;
-  row-gap: 50px;
+  display: grid;
+  font-family: DepartureMono, monospace;
   justify-content: center;
+  row-gap: 50px;
+  text-rendering: geometricPrecision;
 }
 
 #primary.list:empty::after
@@ -72,8 +72,8 @@ ul {
 
 .list:empty::after {
   content: "No results, try different keyword.";
-  white-space: nowrap;
   text-align: center;
+  white-space: nowrap;
 }
 
 .list div
@@ -88,8 +88,8 @@ ul {
 { display: block; }
 
 .n {
-  text-align: center;
   margin: 6px 0 0 0;
+  text-align: center;
 }
 
 .n a {
@@ -105,25 +105,25 @@ ul {
 // -------------------
 
 #sidebar {
-  background: rgba(255,255,255,.75);
-  color: #000;
   backdrop-filter: var(--blur);
-  width: 190px;
-  padding: 10px;
-  margin: 5px;
+  background: rgba(255,255,255,.75);
   border-radius: var(--border-radius);
+  color: #000;
+  margin: 5px;
+  padding: 10px;
+  width: 190px;
   z-index: 2;
 }
 
 #sidebar.left {
-  position: fixed;
   bottom: 0;
+  position: fixed;
 }
 
 #sidebar.right {
+  bottom: 0;
   position: fixed;
   right: 0;
-  bottom: 0;
   -webkit-user-select: none;
   user-select: none;
 }
@@ -152,17 +152,17 @@ ul {
 // ---------------------------------------------
 
 label {
-  font-size: .745rem;
   display: inline-block;
+  font-size: .745rem;
   width: calc(100% - 20px);
 }
 
 kbd {
-  font-family: var(--mono);
-  font-size: .85rem;
   background: #809cff;
-  padding: 1px 4px;
   border-radius: 5px;
+  font-family: "Geist Mono", monospace;
+  font-size: .85rem;
+  padding: 1px 4px;
 }
 
 .right kbd
@@ -175,16 +175,16 @@ kbd {
 // -------------------------
 
 .search {
+  border: 2px solid #606060;
+  border-radius: var(--border-radius);
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
   display: grid;
+  font-size: 0.9rem;
   margin: 0 auto 5px;
-  width: 100%;
   padding: 8px 3px;
   text-align: center;
-  border-radius: var(--border-radius);
-  border: 2px solid #606060;
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
-  font-size: 0.9rem;
   transition: box-shadow 0.15s;
+  width: 100%;
 }
 
 .search:focus {
@@ -194,30 +194,30 @@ kbd {
 }
 
 #placeholder {
-  pointer-events: none;
   font-size: 0.8rem;
-  position: absolute;
-  top: 19px;
   left: 0;
+  pointer-events: none;
+  position: absolute;
   right: 0;
   text-align: center;
+  top: 19px;
 }
 
 #placeholder span {
-  padding-right: 45px;
   color: #000;
+  padding-right: 45px;
 }
 
 .reset {
-  font-size: 0.8rem;
   background: linear-gradient(180deg, #FF5252 0%, #9C2424 100%);
-  color: #fff;
   border: 1px solid #3c3c3c;
   border-radius: var(--border-radius);
   box-shadow: 0 0 5px rgba(0,0,0,0.3);
+  color: #fff;
+  font-size: 0.8rem;
   margin-bottom: 10px;
-  width: 100%;
   padding: 8px;
+  width: 100%;
 }
 
 .reset:active
@@ -298,9 +298,9 @@ html[data-theme-color="light"] kbd
 { background: #4c6cdd; }
 
 html[data-theme-color="light"] #sidebar {
+  backdrop-filter: var(--blur);
   background: rgba(26,26,26,.85);
   color: #fff;
-  backdrop-filter: var(--blur);
 }
 
 html[data-theme-color="light"] #sidebar .sep
@@ -338,8 +338,8 @@ html[data-icon-size="size-1"] .n a
 /* -- 60 px x 60 px -- */
 
 html[data-icon-size="size-2"] .list {
-  grid-template-columns: repeat(auto-fit, 60px);
   column-gap: 3.5%;
+  grid-template-columns: repeat(auto-fit, 60px);
   row-gap: 0;
 }
 
@@ -351,13 +351,13 @@ html[data-icon-size="size-2"] .list div
 
 html[data-icon-size="size-2"] .list div::before,
 html[data-icon-size="size-2"] .list div img {
-  width: 60px;
   height: 60px;
+  width: 60px;
 }
 
 html[data-icon-size="size-2"] .n a {
-  font-size: .7rem;
   display: block;
+  font-size: .7rem;
 }
 
 /* -- 40 px x 40 px -- */
@@ -382,9 +382,9 @@ html[data-icon-size="size-3"] .list div img {
   width: 40px;
 }
 
-html[data-icon-size="size-3"] .n a {
-  font-size: .55rem; 
+html[data-icon-size="size-3"] .n a { 
   display: block;
+  font-size: .55rem;
 }
 
 
