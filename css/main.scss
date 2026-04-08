@@ -318,18 +318,18 @@ html[data-theme-color="light"] .reset kbd
 // # Icon sizes #
 // ==============
 
-/* -- 93 vw x 93 vh -- */
+/* -- 85% of the viewport -- */
 
 html[data-icon-size="size-1"] .list
-{ grid-template-columns: repeat(auto-fit, 93vw); }
+{ grid-template-columns: repeat(auto-fit, 85vw); }
 
 html[data-icon-size="size-1"] .list div
-{ padding-top: 15px; }
+{ padding-top: 30px; }
 
 html[data-icon-size="size-1"] .list div::before,
 html[data-icon-size="size-1"] .list div img {
-  height: 93vh;
-  width: 93vw;
+  height: 85vh;
+  width: 85vw;
 }
 
 html[data-icon-size="size-1"] .n a
@@ -392,18 +392,11 @@ html[data-icon-size="size-3"] .n a {
 // # Scroll snap #
 // ===============
 
-/* -- Enabled (default) -- */
-
-html[data-scroll-snap="on"]
-{ scroll-snap-type: y mandatory; }
+html[data-scroll-snap="on"] {
+  scroll-snap-type: y mandatory;
+  scroll-padding-top: 30px;
+  overscroll-behavior: contain;
+}
 
 html[data-scroll-snap="on"] .list div
 { scroll-snap-align: start; }
-
-/* -- Disabled -- */
-
-html[data-scroll-snap="off"]
-{ scroll-snap-type: unset; }
-
-html[data-scroll-snap="off"] .list div
-{ scroll-snap-align: unset; }
