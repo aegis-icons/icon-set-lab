@@ -24,6 +24,8 @@ Helps for finding design inconsistencies and other issues on all the icons, crea
 > [!CAUTION]
 > **Rapidly flashing colors in the video from 00:01 to 00:06.**
 
+*Video is now outdated, but functionally works the same.*
+
 https://user-images.githubusercontent.com/3540275/211911546-55439249-4f6d-4d3c-8f43-7e481fb21659.mp4
 
 ## Setting up the lab

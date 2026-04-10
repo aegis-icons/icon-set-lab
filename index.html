@@ -21,6 +21,7 @@ title: Icon Set Lab – aegis-icons
   
   <body>
     <div id="container">
+
       <div id="primary-list">
         <h1>Primary</h1>
         <div class="list" id="primary">
@@ -35,7 +36,7 @@ title: Icon Set Lab – aegis-icons
           {% endfor %}
         </div>
       </div>
-  
+      
       <div id="variations-list">
         <h1>Var / Alt</h1>
         <div class="list" id="variations">
@@ -50,7 +51,7 @@ title: Icon Set Lab – aegis-icons
           {% endfor %}
         </div>
       </div>
-  
+      
       <div id="generic-list">
         <h1>Generic</h1>
         <div class="list" id="generic">
@@ -66,23 +67,9 @@ title: Icon Set Lab – aegis-icons
         </div>
       </div>
   
-
       </div>
-    </div>
   
-    <div id="sidebar" class="left">
-      <input class="search" type="search">
-      <span id="placeholder"><span>Filter</span><kbd>CTRL + .</kbd></span>
-      <button class="reset"><span>Clear</span><kbd>ESC</kbd></button>
-      <ul>
-        <li><kbd>I</kbd><a href="#primary">Primary</a><span>:</span> <b id="icon-amount-pri">...</b></li>
-        <li><kbd>O</kbd><a href="#variations">Var / Alt</a><span>:</span> <b id="icon-amount-var">...</b></li>
-        <li><kbd>P</kbd><a href="#generic">Generic</a><span>:</span> <b id="icon-amount-gen">...</b></li>
-        <li class="sep">Total: <b id="total-icon-count">...</b></li>
-      </ul>
-    </div>
-  
-    <div id="sidebar" class="right">
+    <div id="sidebar" class="top">
       <ul>
         <li><b>Icon grid:</b></li>
         <li>
@@ -143,7 +130,19 @@ title: Icon Set Lab – aegis-icons
         </li>
       </ul>
     </div>
-    
+
+    <div id="sidebar" class="bottom">
+      <input class="search" type="search">
+      <span id="placeholder"><span>Filter</span><kbd>CTRL + .</kbd></span>
+      <button class="reset"><span>Clear</span><kbd>ESC</kbd></button>
+      <ul>
+        <li><kbd>I</kbd><a href="#primary">Primary</a><span>:</span> <b id="icon-amount-pri">...</b></li>
+        <li><kbd>O</kbd><a href="#variations">Var / Alt</a><span>:</span> <b id="icon-amount-var">...</b></li>
+        <li><kbd>P</kbd><a href="#generic">Generic</a><span>:</span> <b id="icon-amount-gen">...</b></li>
+        <li class="sep">Total: <b id="total-icon-count">...</b></li>
+      </ul>
+    </div>
+
     <script>{% include bottom-scripts.js %}</script>
   </body>
 </html>
