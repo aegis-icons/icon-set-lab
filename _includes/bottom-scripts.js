@@ -64,9 +64,9 @@
   allRadios.forEach((radio) => { radio.addEventListener('change', () => radio.blur()); });
 
 // ==== Keyboard hotkeys (Hotkeys.js) ====
-  hotkeys('ctrl+.,i,o,p,q,w,e,a,s,d,z,x,c,n,m', function (event, handler){
+  hotkeys('ctrl+y,i,o,p,q,w,e,a,s,d,z,x,c,n,m', function (event, handler){
     switch (handler.key) {
-      case 'ctrl+.': document.querySelector(".search").focus();                     break;
+      case 'ctrl+y': document.querySelector(".search").focus();                     break;
       
       case 'i':      document.querySelector("#primary").scrollIntoView();           break;
       case 'o':      document.querySelector("#variations").scrollIntoView();        break;

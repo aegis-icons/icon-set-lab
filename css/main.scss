@@ -6,7 +6,6 @@
 // ------------------
 
 :root {
-  --blur: blur(10px);
   --border-radius: 10px;
 }
 
@@ -111,7 +110,6 @@ html:not([data-icon-size="size-1"]) .list
 // -------------------
 
 #sidebar {
-  backdrop-filter: var(--blur);
   background: rgba(255,255,255,.75);
   border-radius: var(--border-radius);
   color: #000;
@@ -140,8 +138,6 @@ html:not([data-icon-size="size-1"]) .list
 #sidebar li
 { list-style: none; }
 
-#sidebar.bottom li kbd
-{ margin-right: 5px; }
 
 #sidebar.bottom li b
 { float: right; }
@@ -168,12 +164,16 @@ kbd {
   background: #809cff;
   border-radius: 5px;
   font-family: "Geist Mono", monospace;
-  font-size: .85rem;
+  font-size: .75rem;
   padding: 1px 4px;
+  vertical-align: center;
 }
 
 .top kbd
 { float: right; }
+
+#sidebar.bottom li kbd
+{ margin-right: 5px; }
 
 
 
@@ -212,7 +212,7 @@ kbd {
 
 #placeholder span {
   color: #000;
-  padding-right: 45px;
+  padding-right: 51px;
 }
 
 .reset {
@@ -231,7 +231,7 @@ kbd {
 { background: linear-gradient(0deg, #FF5252 0%, #9C2424 100%); }
 
 .reset span
-{ padding-right: 78px; }
+{ padding-right: 84px; }
 
 .reset kbd
 { color: #000; }
@@ -241,9 +241,9 @@ kbd {
 
 
 
-// -------------------------------
-// ---- RIGHT SIDEBAR OPTIONS ----
-// -------------------------------
+// -----------------------------
+// ---- TOP SIDEBAR OPTIONS ----
+// -----------------------------
 
 // ==============
 // # Icon grids #
@@ -305,7 +305,6 @@ html[data-theme-color="light"] kbd
 { background: #4c6cdd; }
 
 html[data-theme-color="light"] #sidebar {
-  backdrop-filter: var(--blur);
   background: rgba(26,26,26,.85);
   color: #fff;
 }
