@@ -60,7 +60,7 @@ ul {
   font-family: DepartureMono, monospace;
   justify-content: center;
   row-gap: 50px;
-  text-rendering: geometricPrecision;
+  text-rendering: optimizelegibility;
 }
 
 html:not([data-icon-size="size-1"]) .list
@@ -93,7 +93,7 @@ html:not([data-icon-size="size-1"]) .list
 { display: block; }
 
 .n {
-  margin: 13px 0 0 0;
+  margin-top: 0.6vh;
   text-align: center;
 }
 
@@ -161,7 +161,7 @@ label {
 }
 
 kbd {
-  background: #809cff;
+  background: #6fa0ff;
   border-radius: 5px;
   font-family: "Geist Mono", monospace;
   font-size: .75rem;
@@ -324,22 +324,24 @@ html[data-theme-color="light"] .reset kbd
 // # Icon sizes #
 // ==============
 
-/* -- 85% of the viewport -- */
+/* -- 87% of the viewport -- */
 
 html[data-icon-size="size-1"] .list
-{ grid-template-columns: repeat(auto-fit, 85vw); }
+{ grid-template-columns: repeat(auto-fit, 87vw); }
 
 html[data-icon-size="size-1"] .list div
 { padding-top: 30px; }
 
 html[data-icon-size="size-1"] .list div::before,
 html[data-icon-size="size-1"] .list div img {
-  height: 85vh;
-  width: 85vw;
+  height: 87vh;
+  width: 87vw;
 }
 
-html[data-icon-size="size-1"] .n a
-{ font-size: .9rem; }
+html[data-icon-size="size-1"] .n a {
+  font-size: 14px;
+  letter-spacing: -0.4px;
+}
 
 /* -- 60 px x 60 px -- */
 
@@ -359,7 +361,7 @@ html[data-icon-size="size-2"] .list div img {
 
 html[data-icon-size="size-2"] .n a {
   display: block;
-  font-size: .7rem;
+  font-size: 11px;
 }
 
 /* -- 40 px x 40 px -- */
@@ -380,7 +382,7 @@ html[data-icon-size="size-3"] .list div img {
 
 html[data-icon-size="size-3"] .n a { 
   display: block;
-  font-size: .57rem;
+  font-size: 11px;
 }
 
 
