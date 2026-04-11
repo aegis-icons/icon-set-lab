@@ -76,6 +76,7 @@ html:not([data-icon-size="size-1"]) .list
 	content: "No results, try different keyword.";
 	margin: 0 auto;
 	display: block;
+	font-size: 14px;
 }
 
 #primary:empty::after
